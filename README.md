@@ -10,8 +10,7 @@ This repository contains all the **business models**, **technical implementation
 ## 🗺 City Map (Hand-Drawn)
 Here is the original designed layout of our smart city:
 
-(https://ibb.co/9BhM0Jj)>
-
+[(https://ibb.co/9BhM0Jj)>]
 ---
 
 ## 🚀 Project Features
