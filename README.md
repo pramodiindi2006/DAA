@@ -135,7 +135,7 @@
 
     /* ===================== CARD SECTION ===================== */
     .section {
-      padding: 120px 40px;
+      padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
     }
@@ -163,14 +163,17 @@
     }
 
     th, td {
-      padding: 16px;
+      padding: 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
     }
 
     th {
       color: var(--accent);
-      font-size: 1.1rem;
+      font-size: 1.6rem;
+      font-weight: 800;
     }
 
     /* ===================== FOOTER ===================== */
@@ -180,7 +183,96 @@
       opacity: 0.6;
       margin-top: 100px;
     }
-  </style>
+  .team-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+.team-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  transition: 0.35s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+.team-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 25px var(--accent);
+  border-color: var(--accent);
+}
+.team-card::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  top: 0;
+  left: -40%;
+  animation: slide-line 3s linear infinite;
+}
+@keyframes slide-line {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent2), transparent);
+  margin: auto;
+  margin-bottom: 15px;
+  filter: blur(0.8px);
+  box-shadow: 0 0 12px var(--accent2);
+}
+.team-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.team-card p {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+.team-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  transition: 0.35s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+.team-card:hover {
+  transform: translateY(-12px) scale(1.07) rotateX(6deg) rotateY(6deg);
+  box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent2);
+  border-color: var(--accent);
+}
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 3s linear infinite;
+}
+@keyframes borderGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+@keyframes particleMove {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-60px); opacity: 0; }
+}
+</style>
 <style>
 /* INLINE CSS FIXED: Now everything loads correctly */
 * {
@@ -289,13 +381,52 @@ body {
   <section class="section" id="team">
     <div class="card">
       <h2>👥 Team Members</h2>
-      <table>
-        <tr><th>Name</th><th>USN</th></tr>
-        <tr><td>Pramod s indi</td><td>01fe24bcs148</td></tr>
-        <tr><td>Parvatappa j wani</td><td>01fe24bcs148</td></tr>
-        <tr><td>Santosh chikraddi</td><td>01fe24bcs</td></tr>
-        <tr><td>Sujal gowda</td><td>01fe24bcs</td></tr>
-      </table>
+
+<div class="team-grid">
+        <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Pramod S Indi</h3>
+          <p>01FE24BCS148</p>
+        </div>
+
+  <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Parvatappa J Wani</h3>
+          <p>01FE24BCS142</p>
+        </div>
+
+  <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Sujal S Gowda</h3>
+          <p>01FE24BCS</p>
+        </div>
+
+  <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Santosh Chikaraddi</h3>
+          <p>01FE24BCS</p>
+        </div>
+      </div>
+          
+
+        <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Bhoomika Malagar</h3>
+          <p>01fe23bcs216</p>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Saanvi Shetty</h3>
+          <p>01fe23bcs227</p>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Ramya Rao</h3>
+          <p>01fe23bcs243</p>
+        </div>
+      </div>
     </div>
   </section>
 
