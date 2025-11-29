@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -409,7 +409,7 @@ body {
       </div>
 
       
-  </section>
+
 
   <footer id="contact">© 2025 City Design Project — Built with Futuristic UI</footer>
 </body>
