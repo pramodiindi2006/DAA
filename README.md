@@ -291,10 +291,10 @@ body {
       <h2>👥 Team Members</h2>
       <table>
         <tr><th>Name</th><th>USN</th></tr>
-        <tr><td>Amogh Pai</td><td>01fe23bcs217</td></tr>
-        <tr><td>Bhoomika Malagar</td><td>01fe23bcs216</td></tr>
-        <tr><td>Saanvi Shetty</td><td>01fe23bcs227</td></tr>
-        <tr><td>Ramya Rao</td><td>01fe23bcs243</td></tr>
+        <tr><td>Pramod s indi</td><td>01fe24bcs148</td></tr>
+        <tr><td>Parvatappa j wani</td><td>01fe24bcs148</td></tr>
+        <tr><td>Santosh chikraddi</td><td>01fe24bcs</td></tr>
+        <tr><td>Sujal gowda</td><td>01fe24bcs</td></tr>
       </table>
     </div>
   </section>
