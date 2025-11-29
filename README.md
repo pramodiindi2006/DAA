@@ -407,27 +407,8 @@ body {
           <p>01FE24BCS</p>
         </div>
       </div>
-          
 
-        <div class="team-card">
-          <div class="avatar"></div>
-          <h3>Bhoomika Malagar</h3>
-          <p>01fe23bcs216</p>
-        </div>
-
-        <div class="team-card">
-          <div class="avatar"></div>
-          <h3>Saanvi Shetty</h3>
-          <p>01fe23bcs227</p>
-        </div>
-
-        <div class="team-card">
-          <div class="avatar"></div>
-          <h3>Ramya Rao</h3>
-          <p>01fe23bcs243</p>
-        </div>
-      </div>
-    </div>
+      
   </section>
 
   <footer id="contact">© 2025 City Design Project — Built with Futuristic UI</footer>
