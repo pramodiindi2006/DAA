@@ -412,5 +412,4 @@ body {
 
 
   <footer id="contact">© 2025 City Design Project — Built with Futuristic UI</footer>
-</body>
-</html>
+
