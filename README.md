@@ -378,6 +378,21 @@
     </div>
   </section>
 
+  <!-- City Section Added -->
+  <section class="section" id="city">
+    <div class="card">
+      <h2>🏙️ City Layout Design</h2><br>
+      <p>
+        Below is the detailed hand‑drawn smart city layout designed for our project. It includes
+        all major zones such as residential areas, commercial districts, public services,
+        transportation hubs, utility zones, and natural resource regions — all arranged to
+        support algorithm‑driven optimization.
+      </p>
+      <br>
+      <img src="city.jpg" alt="City Design Layout" style="width:100%; border-radius:18px; margin-top:20px; box-shadow:0 0 25px rgba(0,0,0,0.45);">
+    </div>
+  </section>
+
   <!-- Existing Hero Section -->
 
   <section class="hero" id="home">
