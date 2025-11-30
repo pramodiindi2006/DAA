@@ -1,5 +1,5 @@
 <!-- Enhanced Next‑Gen City Design Homepage with Memes & Animations -->
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
