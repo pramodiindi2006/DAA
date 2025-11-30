@@ -1,5 +1,4 @@
-<!-- Enhanced Next‑Gen City Design Homepage with Memes & Animations -->
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -46,12 +45,6 @@
       background: rgba(255, 255, 255, 0.04);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       z-index: 999;
-      animation: slideDown 1.2s ease-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
     }
 
     .logo {
@@ -74,21 +67,6 @@
     nav a:hover {
       color: var(--accent);
       text-shadow: 0 0 12px var(--accent);
-    }
-
-    /* Floating Meme Animation */
-    .floating-meme {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 130px;
-      animation: memeFloat 4s infinite ease-in-out;
-      opacity: 0.9;
-    }
-
-    @keyframes memeFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
     }
 
     .hero {
@@ -121,19 +99,6 @@
       max-width: 650px;
       font-size: 1.1rem;
       opacity: 0.85;
-    }
-
-    .meme-section img {
-      width: 60%;
-      border-radius: 20px;
-      margin-top: 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.2);
-      animation: memePop 1s ease-out;
-    }
-
-    @keyframes memePop {
-      from { transform: scale(0.6); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     .section {
@@ -183,170 +148,43 @@
       border-color: var(--accent);
     }
 
+    .team-card .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent2), transparent);
+      margin: auto;
+      margin-bottom: 15px;
+      box-shadow: 0 0 12px var(--accent2);
+    }
+
+    .team-card a {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .team-card a:hover {
+      background: var(--accent2);
+      color: #fff;
+    }
+
     footer {
       text-align: center;
       padding: 40px;
       opacity: 0.6;
       margin-top: 100px;
     }
-  .team-box {
-      display: block;
-      margin-top: 15px;
-      padding: 12px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 14px;
-      text-align: center;
-      font-weight: 600;
-      color: #000;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .team-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px var(--accent2);
-      color: #fff;
-    }
-
-.team-card {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 25px;
-      border-radius: 18px;
-      text-align: center;
-      transition: 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .team-card:hover {
-      transform: translateY(-14px) scale(1.08);
-      box-shadow: 0 0 25px var(--accent), 0 0 55px var(--accent2);
-      border-color: var(--accent);
-    }
-
-    /* Glow Border Animation */
-    .team-card::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      z-index: -1;
-      background: linear-gradient(120deg, var(--accent), var(--accent2), var(--accent));
-      background-size: 300% 300%;
-      border-radius: inherit;
-      animation: glowMove 6s infinite linear;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .team-card:hover::before {
-      opacity: 1;
-    }
-
-    @keyframes glowMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Smooth Fade-in Sections */
-    .section {
-      animation: fadeSection 1.2s ease-out;
-    }
-
-    @keyframes fadeSection {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-/* Parallax Hero Background */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920') center/cover fixed;
-      border-bottom: 2px solid rgba(255,255,255,0.1);
-    }
-
-    /* Floating Particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: floatUp linear infinite;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 0.2; }
-      100% { transform: translateY(-120vh); opacity: 1; }
-    }
-
-/* 3D Flip Card Effect */
-    .team-card {
-      perspective: 1200px;
-      position: relative;
-      padding: 0;
-      height: 220px;
-    }
-
-    .team-card-inner {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.9s;
-      transform-style: preserve-3d;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
-    }
-
-    .team-card:hover .team-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .card-front h3, .card-back h3 { margin-bottom: 10px; }
-
-    .card-back {
-      transform: rotateY(180deg);
-      background: linear-gradient(120deg, var(--accent), var(--accent2));
-      color: #000;
-    }
-
-</style>
+  </style>
 </head>
 
 <body>
-
-  <!-- Particle Container -->
-  <div class="particles" id="particles"></div>
   <header>
     <div class="logo">CITY DESIGN</div>
     <nav>
@@ -358,11 +196,8 @@
 
   <section class="hero" id="home">
     <h1>Next‑Gen City Design</h1>
-    <p>A futuristic, algorithm‑driven smart city model with humor, creativity & modern animations.</p>
-    
+    <p>A futuristic, algorithm‑driven smart city model built using Design & Analysis of Algorithms.</p>
   </section>
-
-  
 
   <section class="section" id="course">
     <div class="card">
@@ -378,62 +213,45 @@
     <div class="card">
       <h2>👥 Team Members</h2>
 
-  <div class="team-grid">
-        <div class="team-card">
-          <div class="team-card-inner">
-            <div class="card-front">
+   <div class="team-grid">
+      <div class="team-card">
+          <div class="avatar"></div>
           <h3>Pramod S Indi</h3>
           <p>Smart Traffic Optimization System</p>
-          <a class="team-box" href="pramod.html">Open Project Page</a>
+          <a href="pramod.html">View Page</a>
         </div>
-        <div class="team-card">
-          <div class="team-card-inner">
-            <div class="card-front">
+
+   <div class="team-card">
+          <div class="avatar"></div>
           <h3>Parvatappa J Wani</h3>
           <p>Smart Water Management System</p>
-          <a class="team-box" href="parvatappa.html">Open Project Page</a>
+          <a href="parvatappa.html">View Page</a>
         </div>
-        <div class="team-card">
-          <div class="team-card-inner">
-            <div class="card-front">
+
+   <div class="team-card">
+          <div class="avatar"></div>
           <h3>Sujal S Gowda</h3>
           <p>Emergency Response Routing</p>
-          <a class="team-box" href="sujal.html">Open Project Page</a>
+          <a href="sujal.html">View Page</a>
+        </div>
+        <div class="team-card">
+          <div class="avatar"></div>
+          <h3>Santosh Chikaraddi</h3>
+          <p>AI-Driven Waste Collection & Routing</p>
+          <a href="santosh.html">View Page</a>
+        </div>
+
    </div>
-   <div class="team-card">
-   <div class="team-card-inner">
- <div class="card-front">
-  <h3>Santosh Chikaraddi</h3>
-   <p>AI‑Driven Waste Collection & Routing</p>
-   <a class="team-box" href="santosh.html">Open Project Page</a>
-        </div>
-  <div class="card-back">
-          <h3>Open Project</h3>
-   <p>Click below to view details</p>
-              <a class="team-box" href="#">View Page</a>
-            </div>
-          </div>
-        </div>
     </div>
   </section>
 
   <footer>
-    © 2025 Next-Gen City Design — DAA Project
+    © 2025 Next-Gen City Design — Built for DAA Project
   </footer>
-
-<script>
-    // Generate Floating Particles
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 40; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('particle');
-      dot.style.left = Math.random() * 100 + 'vw';
-      dot.style.bottom = '-20px';
-      dot.style.animationDuration = 10 + Math.random() * 15 + 's';
-      dot.style.animationDelay = Math.random() * 5 + 's';
-      container.appendChild(dot);
-    }
-  </script>
 
 </body>
 </html>
+
+
+
+
