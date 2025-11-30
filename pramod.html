@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- General Styling & Variables (Unchanged) --- */
+        /* --- General Styling & Variables --- */
         :root {
             --bg-dark: #0c0f1a;
             --glass: rgba(255, 255, 255, 0.16);
@@ -196,6 +196,7 @@ using Junction = int;
 using TrafficGraph = std::map&lt;Junction, std::vector&lt;RoadSegment&gt;&gt;;
 
 // Min-Heap (Priority Queue) element for Dijkstra's
+// Stores: (Current_Cost, Junction_ID)
 using PQElement = std::pair&lt;int, Junction&gt;;
             </code></pre>
 
@@ -251,33 +252,34 @@ using ClearedRoads = std::unordered_set&lt;std::pair&lt;Junction, Junction&gt;&g
         <section id="case3" class="content-section">
             <h2 class="problem-title">3. Smart Public Parking Management 🅿️</h2>
             <h3>Problem Statement</h3>
-            <p>Focuses on parking areas near the **Hospital**, **Market**, and **Hotel**. Problem: Drivers waste time searching for empty spots, causing localized traffic congestion.</p>
+            <p>Focuses on parking areas near the **Hospital**, **Market**, and **Hotel**. Drivers waste time searching for empty spots, causing localized traffic congestion.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Hash Map** (`std::unordered_map`) stores parking slot status (Occupied/Free) linked to a **Trie** or **Spatial Index** for efficient geo-location search.</p>
+            <p>A **Hash Map** (`std::unordered_map`) stores parking slot status (Occupied/Free). A **Trie** is used for efficient search and auto-completion of parking lot names.</p>
             <pre><code>
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
+#include &lt;vector&gt;
 
-// Structure for a single parking slot
+// Structure for a single parking slot's real-time data
 struct ParkingSlot {
-    std::string lot_id;
+    std::string slot_id;
     bool is_occupied;
-    int last_updated_time;
+    int lot_location_x, lot_location_y;
 };
 
-// Map slot ID (string) to its status (ParkingSlot structure)
+// Map Slot ID (string) to its current status data
 using SlotStatusMap = std::unordered_map&lt;std::string, ParkingSlot&gt;;
 
-// Structure for a Trie Node (for searching parking by area name)
+// Trie Node for efficiently searching large parking lot databases by name/prefix
 struct TrieNode {
     std::unordered_map&lt;char, TrieNode*&gt; children;
-    std::vector&lt;std::string&gt; slot_IDs; // List of slots in this area
+    bool is_end_of_word = false; 
 };
             </code></pre>
             <h3>Application Logic</h3>
-            <p>Sensors detect occupancy. The system uses real-time data to guide drivers via an app or digital signs to the nearest available zone.</p>
+            <p>Sensors detect occupancy, updating the `SlotStatusMap`. The system uses lot names (searched via the Trie) and slot location data to guide drivers to the nearest available spot.</p>
             <h3>Analysis & Complexity</h3>
-            <p>The system relies on fast lookups ($O(1)$ average) in the Hash Map to retrieve slot status and $O(L)$ for Trie search (where $L$ is area name length).</p>
+            <p>Lookups in the Hash Map are $O(1)$ on average. Trie search complexity is $O(L)$, where $L$ is the length of the lot name being searched.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -286,33 +288,31 @@ struct TrieNode {
             <h3>Problem Statement</h3>
             <p>Inefficient connections and poor scheduling between the **Railway Station**, **Bus Stand**, and major **Residential Areas** discourage public transport usage.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Time-Expanded Graph** is used where nodes represent (stop, time) pairs. A **Priority Queue** manages vehicle movement and transfers.</p>
+            <p>A **Time-Expanded Graph** (TEG) is used for optimization, where nodes include time information. A **Priority Queue** manages path search for the fastest route.</p>
             <pre><code>
 #include &lt;queue&gt;
+#include &lt;map&gt;
 
 // Represents a node in the Time-Expanded Graph: (Stop ID, Departure Time)
 struct TEG_Node {
     int stop_id;
-    int time_point;
+    int time_point; // Time in minutes from midnight
+    // Required for Priority Queue comparison
+    bool operator&gt;(const TEG_Node&amp; other) const {
+        return time_point &gt; other.time_point;
+    }
 };
 
-// Edge represents a journey (bus ride or transfer)
-struct TEG_Edge {
-    TEG_Node destination;
-    int travel_time;
-};
+// TEG adjacency list: Stop ID -> Vector of possible connections (edges)
+using TimeExpandedGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; // Stop -&gt; (Dest Stop, Travel Time)
 
 // A Min-Heap for Dijkstra's on the TEG, prioritizing earlier arrival time
-using TEG_PQ = std::priority_queue&lt;
-    std::pair&lt;int, TEG_Node&gt;, 
-    std::vector&lt;std::pair&lt;int, TEG_Node&gt;&gt;, 
-    std::greater&lt;std::pair&lt;int, TEG_Node&gt;&gt;
-&gt;;
+using TEG_PQ = std::priority_queue&lt;TEG_Node, std::vector&lt;TEG_Node&gt;, std::greater&lt;TEG_Node&gt;&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>Dynamically adjusts bus schedules based on passenger load and traffic (from Case 1), ensuring timely connections at the main hubs like the Railway Station.</p>
+            <p>The system runs Dijkstra's on the TEG to find the minimum travel time (including wait and transfer times). Schedules are dynamically adjusted based on passenger load and traffic data.</p>
             <h3>Analysis & Complexity</h3>
-            <p>Route optimization runs Dijkstra's on the TEG, $O(V_{TE} \log V_{TE})$, where $V_{TE}$ is the number of (stop, time) nodes.</p>
+            <p>Route optimization runs Dijkstra's on the TEG, $O(V_{TE} \log V_{TE})$, where $V_{TE}$ is the number of (stop, time) nodes, ensuring efficient real-time schedule updates.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -321,28 +321,29 @@ using TEG_PQ = std::priority_queue&lt;
             <h3>Problem Statement</h3>
             <p>Unpredictable river flow and Dam releases threaten the low-lying **Farm** areas and riverside **Residential Areas** with flooding.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Time Series Database** concept is used, implemented with a **Vector** of structured sensor readings. A **Queue** manages alert dissemination.</p>
+            <p>A **Time Series Database** concept, implemented with a sorted **Vector** for efficient range queries. A **Queue** manages time-critical flood alert dissemination.</p>
             <pre><code>
 #include &lt;vector&gt;
 #include &lt;queue&gt;
+#include &lt;algorithm&gt; // For binary search
 
 // Structure to hold a time-series data point
 struct WaterReading {
-    long long timestamp;
-    int water_level_cm; // Sensor data from Dam/River
-    int flow_rate_m3s;
+    long long timestamp; // Unix timestamp
+    int sensor_id;       // Which sensor (Dam, River point A, B, etc.)
+    int water_level_cm;  // Sensor data 
 };
 
 // Main Time Series Storage (Chronologically sorted vector)
 using TimeSeriesData = std::vector&lt;WaterReading&gt;;
 
-// Queue to hold high-priority flood alerts before sending
+// Queue to hold high-priority flood alerts before sending to city systems
 using AlertQueue = std::queue&lt;std::string&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>Uses predictive modeling (like statistical regression) on the time series data to forecast water levels and automatically trigger alerts via the `AlertQueue` if a threshold is crossed.</p>
+            <p>Predictive models analyze the `TimeSeriesData`. If the water level is forecasted to breach critical limits, a flood warning is added to the `AlertQueue` for immediate broadcast.</p>
             <h3>Analysis & Complexity</h3>
-            <p>Data lookups use Binary Search on the sorted vector $O(\log N)$. Alert processing is fast ($O(1)$ dequeuing).</p>
+            <p>Data insertion is $O(N)$ (to maintain sort order), but time-based lookups use Binary Search, which is efficient at $O(\log N)$. Alert processing is $O(1)$ dequeuing.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -351,10 +352,11 @@ using AlertQueue = std::queue&lt;std::string&gt;;
             <h3>Problem Statement</h3>
             <p>Inefficient, fixed routes for waste collection lead to over-full bins in some areas and unnecessary trips to the **Dump/Landfill** location.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** similar to traffic, but weights are based on **Fill Level** and **Time Since Last Collection**. The problem is a variation of the **Traveling Salesperson Problem (TSP)**.</p>
+            <p>A **Graph** where nodes are bins and edges are distances. **Greedy/Dynamic Programming** techniques are used to solve the **TSP** (Traveling Salesperson Problem) variation.</p>
             <pre><code>
 #include &lt;vector&gt;
 #include &lt;map&gt;
+#include &lt;algorithm&gt;
 
 // Structure representing a smart bin
 struct SmartBin {
@@ -363,16 +365,16 @@ struct SmartBin {
     int location_x, location_y;
 };
 
-// Graph adjacency matrix for distance/cost between collection points
+// Graph adjacency matrix storing the cost (distance/time) between bins
 using DistanceMatrix = std::vector&lt;std::vector&lt;int&gt;&gt;;
 
-// Map to efficiently select only 'ready' bins for the TSP algorithm
+// Map to efficiently select only 'ready' bins (e.g., fill_level > 0.8) for the route optimization
 using ReadyBins = std::map&lt;int, SmartBin&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>An approximation algorithm (e.g., Christofides) solves the TSP variation daily, using the `DistanceMatrix` and only the `ReadyBins` to create the most efficient route.</p>
+            <p>The system identifies `ReadyBins` and calculates the optimal collection sequence using the `DistanceMatrix`. Since this is a TSP problem, a efficient heuristic or approximation algorithm is used daily.</p>
             <h3>Analysis & Complexity</h3>
-            <p>Approximation algorithms for TSP are necessary since the problem is NP-hard. For $N$ bins, the complexity is typically $O(N^3)$ or worse for certain approximations.</p>
+            <p>Finding the absolute optimal route is NP-hard. Practical solutions use approximation algorithms (e.g., Christofides or nearest neighbor), resulting in polynomial time complexity, typically $O(N^3)$ or worse for $N$ bins.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -381,32 +383,32 @@ using ReadyBins = std::map&lt;int, SmartBin&gt;;
             <h3>Problem Statement</h3>
             <p>Unpredictable high-load spikes from the **Factory** and **Industrial Area** can cause blackouts in the nearby **Residential Areas**.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** models the electrical sub-station hierarchy and connections. A **Priority Queue** manages load shedding/re-routing requests based on urgency.</p>
+            <p>A **Graph** models the electrical sub-station hierarchy. A **Priority Queue** manages load shedding/re-routing requests based on the priority of the affected zone.</p>
             <pre><code>
 #include &lt;queue&gt;
 #include &lt;map&gt;
 
-// Represents an electrical sub-station or connection point
+// Represents an electrical node (substation or consumer area)
 struct Substation {
     int id;
     double current_load; // MW
-    int priority_level;  // 1=High (Hospital), 3=Low (Non-critical)
+    int priority_level;  // 1=High (Hospital), 3=Low (Non-critical factory segment)
+    // For Priority Queue comparison
+    bool operator&gt;(const Substation&amp; other) const {
+        return priority_level &gt; other.priority_level;
+    }
 };
 
 // Graph of the power grid connections
 using PowerGridGraph = std::map&lt;int, std::vector&lt;int&gt;&gt;;
 
-// Min-Heap to prioritize load re-routing/shedding for lowest priority areas first
-using LoadPriorityQueue = std::priority_queue&lt;
-    Substation, 
-    std::vector&lt;Substation&gt;, 
-    std::greater&lt;Substation&gt;
-&gt;;
+// Min-Heap to prioritize load re-routing/shedding: lower priority_level is higher priority item
+using LoadPriorityQueue = std::priority_queue&lt;Substation, std::vector&lt;Substation&gt;, std::greater&lt;Substation&gt;&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>The system re-routes power or sheds load using the `LoadPriorityQueue`. It checks the `PowerGridGraph` for alternative paths using a fast traversal algorithm (like DFS/BFS) to prevent cascading failures.</p>
+            <p>When a load surge is detected, the system determines the lowest-priority area to shed load from using the `LoadPriorityQueue`. It checks the `PowerGridGraph` using a fast traversal to find alternative supply paths if re-routing is possible.</p>
             <h3>Analysis & Complexity</h3>
-            <p>Graph traversal (DFS/BFS) for re-routing is fast, $O(V+E)$, making decision-making instantaneous during power events.</p>
+            <p>Graph traversal (DFS/BFS) for re-routing is fast, $O(V+E)$, ensuring instantaneous decision-making during critical power events.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -415,13 +417,14 @@ using LoadPriorityQueue = std::priority_queue&lt;
             <h3>Problem Statement</h3>
             <p>Emissions from the **Industrial Area** and **Factory** negatively impact air quality in downwind **Residential Areas** and recreational zones like the **Park/Stadium**.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **2D Array** represents a spatial grid of the city for sensor readings. A **B-Tree** concept (simulated by sorted structures) is used for efficient query management.</p>
+            <p>A **2D Array** represents a spatial grid of the city for sensor readings. A **Hash Map** stores time-based alerts and event data.</p>
             <pre><code>
 #include &lt;vector&gt;
-#include &lt;tuple&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
 
 // A spatial grid for the city, storing the Air Quality Index (AQI) value
-// [Row][Column] -> AQI Value
+// [Row][Column] -> AQI Value or Pollutant Concentration
 using AirQualityGrid = std::vector&lt;std::vector&lt;int&gt;&gt;;
 
 // Structure for a recorded event/alert
@@ -431,13 +434,13 @@ struct AirQualityEvent {
     int aqi_value;
 };
 
-// Vector of events, conceptually organized like a B-Tree for time-based lookups
-using EventLog = std::vector&lt;AirQualityEvent&gt;;
+// Hash map to store alerts/warnings keyed by timestamp for quick lookup
+using EventLog = std::unordered_map&lt;long long, AirQualityEvent&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>Correlates pollutant readings (`AirQualityGrid`) with wind data. If high pollutant levels are predicted to reach residential zones, the system issues alerts and recommends industrial operational adjustments.</p>
+            <p>The system constantly updates the `AirQualityGrid`. When a critical AQI is reached, an event is logged. Predictive models use the grid data and wind patterns to determine the source and trajectory of pollution.</p>
             <h3>Analysis & Complexity</h3>
-            <p>Spatial lookups in the grid are $O(1)$. Time-based range queries on the `EventLog` require $O(\log N)$ using binary search techniques.</p>
+            <p>Spatial lookups in the grid are $O(1)$. Event logging and retrieval from the Hash Map are also $O(1)$ on average, allowing for rapid alert generation.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
         </section>
 
@@ -446,22 +449,26 @@ using EventLog = std::vector&lt;AirQualityEvent&gt;;
             <h3>Problem Statement</h3>
             <p>Lack of pre-planned, optimized, and dynamic evacuation routes for high-density areas (School, Hospital, Stadium) during emergencies (e.g., dam break or major fire).</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** of the city where edge weights are dynamically updated to mark **blocked/unsafe** roads. **Breadth-First Search (BFS)** is ideal for finding shortest path in terms of segments.</p>
+            <p>A **Graph** of the city where edge weights are dynamically updated to mark **blocked/unsafe** roads. **Breadth-First Search (BFS)** finds shortest path in terms of segments.</p>
             <pre><code>
 #include &lt;queue&gt;
 #include &lt;map&gt;
+#include &lt;vector&gt;
 
-// Graph structure where weight '0' or 'infinity' indicates blocked/unsafe
-using EvacGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; // Node -> (Neighbor, Weight)
+// Graph adjacency list: Node -> Vector of neighbors and segment length/safety weight
+using EvacGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; 
 
-// Queue for Breadth-First Search (BFS) to find the shortest number of segments
+// Queue for Breadth-First Search (BFS) to find the shortest number of segments (fastest)
 using BFSQueue = std::queue&lt;int&gt;;
 
-// Vector to store the sequence of junctions for the final optimal path
+// Vector to reconstruct the final optimal path
 using EvacPath = std::vector&lt;int&gt;;
+
+// Array or Map to track the status of each junction (Safe, Blocked, Congested)
+using JunctionStatus = std::map&lt;int, std::string&gt;;
             </code></pre>
             <h3>Application Logic</h3>
-            <p>Upon a disaster, the system uses **BFS** (since it finds the shortest path in an unweighted/uniformly weighted graph, minimizing segment count) on the `EvacGraph` to find the safest path to designated zones.</p>
+            <p>The system updates `JunctionStatus` based on real-time feedback (police, sensors). It then uses BFS on the `EvacGraph` (ignoring paths through 'Blocked' junctions) to find the safest path to designated zones.</p>
             <h3>Analysis & Complexity</h3>
             <p>BFS is $O(V+E)$, providing the fastest possible calculation of the minimum number of road segments to an evacuation point, which is crucial during a disaster.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
@@ -472,31 +479,32 @@ using EvacPath = std::vector&lt;int&gt;;
             <h3>Problem Statement</h3>
             <p>Delivery services (vehicles/drones) face severe delays navigating the dense, complex road network and pedestrian zones of the **Residential Areas** and **Market**.</p>
             <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** (similar to traffic) with time weights. A **Priority Queue** manages order scheduling and vehicle assignment to minimize idle time.</p>
+            <p>A **Graph** (TrafficGraph from Case 1) with time weights. A **Priority Queue** manages order scheduling, prioritizing orders based on deadlines and geographical proximity.</p>
             <pre><code>
 #include &lt;queue&gt;
 #include &lt;tuple&gt;
+#include &lt;vector&gt;
 
 // Structure for an incoming delivery order
 struct DeliveryOrder {
     int order_id;
     int delivery_location_junction;
-    int deadline_time;
+    int deadline_time; // Time by which the delivery must be completed
+    double latitude, longitude;
 };
 
-// Graph of the delivery network (can be same as TrafficGraph but with adjusted weights)
-// Use TrafficGraph from Case 1
-
-// Min-Heap (Priority Queue) prioritizing orders with the closest deadline
+// Min-Heap (Priority Queue) prioritizing orders with the closest deadline (earliest time)
 // Stores: (Deadline Time, Order ID)
 using OrderPriorityQueue = std::priority_queue&lt;
     std::pair&lt;int, int&gt;, 
     std::vector&lt;std::pair&lt;int, int&gt;&gt;, 
     std::greater&lt;std::pair&lt;int, int&gt;&gt;
 &gt;;
+
+// Graph structure is reused from Case 1 (TrafficGraph) for routing
             </code></pre>
             <h3>Application Logic</h3>
-            <p>The system uses Dijkstra's ($O(E \log V)$) with the live traffic `TrafficGraph` to calculate the fastest route for the next order pulled from the `OrderPriorityQueue`.</p>
+            <p>The system retrieves the next urgent order from the `OrderPriorityQueue`. It then uses Dijkstra's ($O(E \log V)$) on the live traffic `TrafficGraph` to calculate the absolute fastest route for the delivery agent.</p>
             <h3>Analysis & Complexity</h3>
             <p>The primary computation for each delivery agent is the repeated shortest path search, running in $O(E \log V)$ time for the fastest route calculation.</p>
             <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
