@@ -109,11 +109,10 @@
       background: linear-gradient(90deg, #fff, var(--accent));
       -webkit-background-clip: text;
       color: transparent;
-      animation: float 4s ease-in-out infinite;
+      
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
+    
       50% { transform: translateY(-18px); }
     }
 
@@ -174,11 +173,10 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       position: relative;
       overflow: hidden;
-      transform-style: preserve-3d;
+      
     }
 
     .team-card:hover {
-      transform: translateY(-12px) scale(1.07);
       box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent2);
       border-color: var(--accent);
     }
@@ -220,7 +218,7 @@
     }
 
     .team-card:hover {
-      transform: translateY(-14px) scale(1.08);
+      
       box-shadow: 0 0 25px var(--accent), 0 0 55px var(--accent2);
       border-color: var(--accent);
     }
@@ -287,7 +285,7 @@
       background: var(--accent);
       border-radius: 50%;
       opacity: 0.7;
-      animation: floatUp linear infinite;
+      
     }
 
     @keyframes floatUp {
@@ -308,7 +306,7 @@
       width: 100%;
       height: 100%;
       transition: transform 0.9s;
-      transform-style: preserve-3d;
+      
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.2);
