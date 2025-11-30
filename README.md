@@ -315,7 +315,7 @@
     }
 
     .team-card:hover .team-card-inner {
-      transform: rotateY(180deg);
+    
     }
 
     .card-front, .card-back {
@@ -333,7 +333,7 @@
     .card-front h3, .card-back h3 { margin-bottom: 10px; }
 
     .card-back {
-      transform: rotateY(180deg);
+    
       background: linear-gradient(120deg, var(--accent), var(--accent2));
       color: #000;
     }
