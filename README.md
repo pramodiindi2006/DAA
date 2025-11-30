@@ -1,12 +1,12 @@
 <!-- Compact & Enhanced Next‑Gen City Design Homepage -->
 <!-- NOTE: Your full upgraded version with reduced spacing, vertical layout, advanced animations/effects -->
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Next‑Gen City Design</title>
+<title>Surya_Nagar City Design</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -64,7 +64,7 @@
     height:70vh; margin-top:80px;
     display:flex; flex-direction:column; justify-content:center; align-items:center;
     text-align:center; padding:10px;
-    background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920') center/cover fixed;
+    background:url('https://in.images.search.yahoo.com/images/view;_ylt=Awr1Td3zhSxpGLIS10S9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzZmYWYzMGU4Y2QyNzBiZTIwYjI0YjMwYmU4ZDg1ZWQ0BGdwb3MDMTcEaXQDYmluZw--?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Ddata%2Bdtructures%2Band%2Balgoriyh%2Bbaground%2Bimage%26ei%3DUTF-8%26type%3DE210IN885G0%26fr%3Dmcafee%26fr2%3Dp%253As%252Cv%253Ai%252Cm%253Asb-top%26tab%3Dorganic%26ri%3D17&w=1300&h=641&imgurl=c8.alamy.com%2Fcomp%2F2AH78NN%2Falgorithms-word-concepts-banner-programming-data-structure-and-mining-machine-learning-coding-presentation-isolated-lettering-typography-with-li-2AH78NN.jpg&rurl=https%3A%2F%2Fwww.alamy.com%2Falgorithms-word-concepts-banner-programming-data-structure-and-mining-machine-learning-coding-presentation-isolated-lettering-typography-with-li-image337606689.html&size=85KB&p=data+dtructures+and+algoriyh+baground+image&oid=6faf30e8cd270be20b24b30be8d85ed4&fr2=p%3As%2Cv%3Ai%2Cm%3Asb-top&fr=mcafee&tt=Algorithms+word+concepts+banner.+Programming.+Data+structure+and+mining+...&b=0&ni=160&no=17&ts=&tab=organic&sigr=7OSESQFj2Ftl&sigb=7YkRTtuZqF7B&sigi=PYfFvBYnoV9E&sigt=vG8NYvK7nToD&.crumb=kG.tdI965jS&fr=mcafee&fr2=p%3As%2Cv%3Ai%2Cm%3Asb-top&type=E210IN885G0') center/cover fixed;
     border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .hero h1 {
@@ -132,21 +132,19 @@
 </header>
 
 <section class="hero" id="home">
-  <h1>Next‑Gen City Design</h1>
+  <h1>Surya-Nagar City Design</h1>
   <p>Compact, vertical, futuristic — powered by DAA algorithms.</p>
 </section>
 
 <section class="section" id="about">
   <h2>🌆 About the Project</h2>
   <p>
-    This upgraded smart‑city model integrates <b>DAA algorithms</b> for traffic optimization,
-    water distribution, emergency routing, and AI‑driven waste collection. Now redesigned in a
-    compact vertical layout with advanced animations.
+    This next-generation smart-city model is engineered as a fully data-driven ecosystem, where every function is powered by advanced data structures and DAA algorithms. From resource distribution to emergency routing and intelligent waste management, the entire city operates as a living computational system. Designed in a compact vertical layout, the model features smooth, high-end animations that bring this algorithmic city to life.
   </p>
 </section>
 
 <section class="section" id="city">
-  <h2>🏙️ City Layout (Vertical)</h2>
+  <h2>🏙️ City Layout </h2>
   <p>The city map is preserved exactly as requested — placed in a taller vertical frame.</p>
   <img src="city.jpg" class="city-img">
 </section>
@@ -157,25 +155,25 @@
 
     <div class="team-card">
       <h3>Pramod S Indi</h3>
-      <p>Smart Traffic Optimization</p>
+      <p></p>
       <a href="pramod.html" class="team-box">Open</a>
     </div>
 
     <div class="team-card">
       <h3>Parvatappa J Wani</h3>
-      <p>Smart Water System</p>
+      <p></p>
       <a href="parvatappa.html" class="team-box">Open</a>
     </div>
 
     <div class="team-card">
       <h3>Sujal S Gowda</h3>
-      <p>Emergency Routing</p>
+      <p></p>
       <a href="sujal.html" class="team-box">Open</a>
     </div>
 
     <div class="team-card">
       <h3>Santosh Chikaraddi</h3>
-      <p>AI Waste Collection</p>
+      <p></p>
       <a href="santosh.html" class="team-box">Open</a>
     </div>
 
