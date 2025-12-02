@@ -1,100 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santosh – AI‑Driven Waste Collection</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0c0f1a;
-      --glass: rgba(255, 255, 255, 0.16);
-      --accent: #00eaff;
-      --accent2: #9c59ff;
-      --text-light: #e8e8e8;
-      --radius: 18px;
-      --blur: 18px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-    body {
-      background: radial-gradient(circle at top, #1b2238, #090b14 70%);
-      color: var(--text-light);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .card {
-      max-width: 900px;
-      width: 100%;
-      background: var(--glass);
-      backdrop-filter: blur(var(--blur));
-      border-radius: var(--radius);
-      padding: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(0, 234, 255, 0.1);
-      color: var(--accent);
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 6px;
-      background: linear-gradient(90deg, #fff, var(--accent));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    h2 { margin-top: 24px; margin-bottom: 8px; font-size: 1.3rem; }
-    p { margin-bottom: 8px; opacity: 0.9; }
-    ul { margin-left: 18px; margin-top: 6px; }
-    li { margin-bottom: 4px; }
-    .back-link {
-      margin-top: 24px;
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 16px;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .back-link:hover { background: var(--accent2); color: #fff; }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pramod – Additional 10 Smart City Business Cases</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0c0f1a;
+            --glass: rgba(255,255,255,0.08);
+            --accent: #00eaff;
+            --accent2: #9c59ff;
+            --text-light: #e8e8e8;
+            --radius: 14px;
+            --blur: 12px;
+            --code-bg: rgba(0,0,0,0.35);
+        }
+        *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
+        body{
+            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
+            color:var(--text-light);
+            padding:32px;
+        }
+        .container{max-width:1100px;margin:0 auto}
+        header.card, .content-section, .navigation {
+            background:var(--glass);
+            border-radius:var(--radius);
+            padding:28px;
+            border:1px solid rgba(255,255,255,0.08);
+            margin-bottom:22px;
+            backdrop-filter: blur(var(--blur));
+        }
+        .badge{
+            display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(0,234,255,0.08);color:var(--accent);font-weight:600;font-size:0.85rem;margin-bottom:10px;
+        }
+        h1{font-size:2.4rem;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;color:transparent;margin-bottom:6px}
+        p.lead{opacity:0.9;margin-bottom:8px}
+        .navigation h2{color:var(--accent);margin-bottom:10px}
+        .problem-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+        .problem-list a{
+            display:block;padding:12px;border-radius:10px;background:rgba(0,0,0,0.18);color:var(--text-light);text-decoration:none;font-weight:600;border-left:4px solid var(--accent2)
+        }
+        .content-section{padding:22px}
+        .problem-title{color:var(--accent);font-size:1.6rem;margin-bottom:10px;border-bottom:2px solid rgba(0,234,255,0.12);padding-bottom:8px}
+        h3{color:var(--accent2);margin-top:14px;margin-bottom:8px}
+        p{line-height:1.6;margin-bottom:8px;opacity:0.95}
+        pre{background:var(--code-bg);padding:12px;border-radius:8px;overflow:auto;margin:10px 0;font-family:monospace;font-size:0.9rem}
+        code{color:var(--text-light)}
+        .back-to-top{display:inline-block;margin-top:10px;color:var(--accent);text-decoration:none;font-weight:700}
+        footer{margin-top:18px;color:#9aa0b1;font-size:0.9rem}
+    </style>
 </head>
 <body>
-  <main class="card">
-    <span class="badge">Next‑Gen City Design · DAA Project</span>
-    <h1>Santosh Chikaraddi</h1>
-    <p><b>Module:</b> AI‑Driven Waste Collection & Routing</p>
+    <div class="container">
+        <header class="card">
+            <span class="badge">Next-Gen City Design · DAA Project</span>
+            <h1>Pramod S Indi — Additional 10 Business Cases (11–20)</h1>
+            <p class="lead"><strong>Module:</strong> Smart City — Supplemental Business Cases derived from your city map.</p>
+            <p class="lead">Each case follows the same structure: <em>Problem Statement → Data Structures & C++ Code → Application Logic → Analysis & Complexity</em>.</p>
+        </header>
 
-    <h2>Problem Statement</h2>
-    <p>Describe problems like overflowing bins, inefficient collection routes, and high fuel usage in city waste management.</p>
+        <div class="navigation">
+            <h2>Additional Cases</h2>
+            <ul class="problem-list">
+                <li><a href="#case11">11. Smart Retail Analytics & Demand Forecasting</a></li>
+                <li><a href="#case12">12. Visitor Wayfinding & Local Discovery</a></li>
+                <li><a href="#case13">13. Predictive Road & Pavement Maintenance</a></li>
+                <li><a href="#case14">14. Smart Streetlighting & Adaptive Lighting</a></li>
+                <li><a href="#case15">15. Public Wi-Fi / Bandwidth Orchestration</a></li>
+                <li><a href="#case16">16. Irrigation Scheduling & Precision Farming</a></li>
+                <li><a href="#case17">17. Industrial Emissions & Compliance Monitoring</a></li>
+                <li><a href="#case18">18. Cold-Chain & Perishable Logistics</a></li>
+                <li><a href="#case19">19. Event & Venue Management</a></li>
+                <li><a href="#case20">20. Smart Surveillance & Anomaly Detection</a></li>
+            </ul>
+        </div>
 
-    <h2>Algorithms Used</h2>
-    <ul>
-      <li>Routing heuristics inspired by travelling salesman or vehicle routing problems.</li>
-      <li>Clustering algorithms to group nearby bins into service zones.</li>
-      <li>Scheduling logic for deciding optimal collection times.</li>
-    </ul>
+        <!-- CASE 11 -->
+        <section id="case11" class="content-section">
+            <h2 class="problem-title">11. Smart Retail Analytics & Demand Forecasting (Mall / Showroom / Market)</h2>
 
-    <h2>Key Features</h2>
-    <ul>
-      <li>Smart route planning that minimizes total distance travelled.</li>
-      <li>Bin‑level priority based on fill level or complaints.</li>
-      <li>Support for multiple collection vehicles and depots.</li>
-    </ul>
+            <h3>Problem Statement</h3>
+            <p>Mall/showroom/market owners need demand forecasts, footfall heatmaps and product-level insight to optimize inventory, promotions and layout.</p>
 
-    <h2>Time & Space Complexity</h2>
-    <p>Explain complexity of your routing and clustering approaches and why heuristics are needed for large city graphs.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+#include &lt;deque&gt;
 
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </main>
+// Footfall counter per zone
+struct ZoneCount {
+    int zone_id;
+    long long timestamp; // unix ts
+    int count; // people entering in interval
+};
+
+// Sales record
+struct Sale {
+    std::string product_id;
+    int zone_id;
+    long long timestamp;
+    int qty;
+    double price;
+};
+
+// Time-windowed aggregator
+using ZoneSeries = std::deque&lt;ZoneCount&gt;; // roll-up sliding window
+using SalesMap = std::unordered_map&lt;std::string, std::vector&lt;Sale&gt;&gt;; // product -> sales
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Ingest sensor counts into <code>ZoneSeries</code>, aggregate <code>SalesMap</code>, compute rolling averages and generate restock/promotional suggestions using weighted moving averages.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Sliding-window updates are O(1) amortized; computing rolling averages O(Z) for Z zones; product aggregations O(P) where P is number of SKUs within the analysis window.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 12 -->
+        <section id="case12" class="content-section">
+            <h2 class="problem-title">12. Visitor Wayfinding & Local Discovery (Hotel / Mall / Park / Helipad)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Visitors (hotel guests, tourists) need contextual navigation, POI recommendations, and multimodal directions (walk → bus → rail → helipad).</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;queue&gt;
+
+struct POI {
+    int id;
+    std::string name;
+    double lat, lon;
+    std::vector&lt;std::string&gt; tags; // museum, food, view
+};
+
+using POIIndex = std::map&lt;std::string, std::vector&lt;int&gt;&gt;; // tag -> POI ids
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Index POIs by tags. Combine nearest-neighbor search (KD-tree recommended) plus tag filters, then compute multimodal route suggestions using short Dijkstra queries on the integrated transport graph.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Tag lookup O(1) (hash) then NN search O(log N) with KD-tree; route computation O(E log V).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 13 -->
+        <section id="case13" class="content-section">
+            <h2 class="problem-title">13. Predictive Road & Pavement Maintenance (Roads / Bridges / Dam Access)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Prioritize maintenance by wear, traffic and safety risk to reduce failures and cost.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;map&gt;
+
+struct RoadSegment {
+    int id;
+    double condition_index; // 0 (bad) to 1 (excellent)
+    int daily_traffic;
+    bool has_bridge;
+};
+
+using SegmentMap = std::map&lt;int, RoadSegment&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Update <code>condition_index</code> from sensor/inspection reports. Compute priority = (1-condition)*traffic_factor*bridge_factor. Select top-K segments for maintenance scheduling.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Updating scores is O(S) for S segments; selecting top-K via heap is O(S log K).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 14 -->
+        <section id="case14" class="content-section">
+            <h2 class="problem-title">14. Smart Streetlighting & Adaptive Lighting (Roads / Park / Stadium)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Reduce energy and light pollution while keeping safety: dim lights in low-use hours and brighten on presence or events.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;unordered_map&gt;
+#include &lt;vector&gt;
+
+struct LightNode {
+    int id;
+    double power_draw; // watts
+    bool is_on;
+    double brightness; // 0.0 - 1.0
+    int motion_count_last_min;
+};
+
+using LightNetwork = std::unordered_map&lt;int, LightNode&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Motion sensors or event signals set `brightness`. If `motion_count_last_min` or scheduled event is active, set brightness to full; otherwise dim. Batch updates used to shave grid-level peaks.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Per-node update O(1); network-level adjustments O(N) but can be batched for efficiency.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 15 -->
+        <section id="case15" class="content-section">
+            <h2 class="problem-title">15. Public Wi-Fi / Bandwidth Orchestration (Market / Railway Station / Stadium)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Provide managed connectivity with fair usage, priority for emergency/official traffic, and analytics for monetization.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;unordered_map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+
+struct UserSession {
+    std::string session_id;
+    int zone_id;
+    long long start_ts;
+    long long last_active_ts;
+    int bytes_used;
+    int priority; // 0 normal, 1 emergency/official
+};
+
+using SessionMap = std::unordered_map&lt;std::string, UserSession&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Track sessions, enforce QoS (elevate police/hospital traffic), implement fair-queueing or throttling, and produce usage reports for zone monetization and capacity planning.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Session lookup O(1); per-packet queuing complexity varies with policy structure (commonly O(log N) for priority queues).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 16 -->
+        <section id="case16" class="content-section">
+            <h2 class="problem-title">16. Irrigation Scheduling & Precision Farming (Farm)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Optimize irrigation to save water and improve yields using soil moisture, weather forecasts and dam release schedules.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;map&gt;
+
+struct Plot {
+    int plot_id;
+    double soil_moisture; // 0-1
+    double crop_coefficient; // Kc
+    double last_irrigation_ts;
+};
+
+using FarmPlots = std::map&lt;int, Plot&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Compute evapotranspiration (ET) estimates and required irrigation volume per plot: need = ET * Kc - soil_available. Schedule irrigation constrained by pump capacity and dam release.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Per-plot calculation O(1). Scheduling for M plots with capacity constraints solved greedily in O(M log M).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 17 -->
+        <section id="case17" class="content-section">
+            <h2 class="problem-title">17. Industrial Emissions & Compliance Monitoring (Factory / Industrial Area)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Real-time compliance system: log emissions, trigger alarms when limits exceeded, and produce audit-grade records.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+
+struct EmissionSample {
+    long long ts;
+    std::string pollutant; // CO2, NOx, SO2
+    double concentration;  // ppm or mg/m3
+    int source_id;
+};
+
+using EmissionLog = std::vector&lt;EmissionSample&gt;;
+using Thresholds = std::unordered_map&lt;std::string, double&gt;; // pollutant -> max allowed
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Stream sensor readings to <code>EmissionLog</code>. Run windowed statistics; if thresholds crossed, trigger mitigation (throttle process), notify regulators and persist event logs for audits.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Windowed aggregation per pollutant O(1) per sample using running sums; alerting constant-time per event.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 18 -->
+        <section id="case18" class="content-section">
+            <h2 class="problem-title">18. Cold-Chain & Perishable Logistics (Farm → Market → Railway)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Ensure perishable produce maintains temperature during transit; match shipments to refrigerated vehicles and plan fastest routes to reduce spoilage.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;tuple&gt;
+#include &lt;queue&gt;
+
+struct Shipment {
+    int id;
+    int origin_plot;
+    int dest_market;
+    long long pick_ts;
+    double max_temp; // allowable max
+    double current_temp;
+};
+
+struct Vehicle {
+    int id;
+    double capacity;
+    bool has_refrigeration;
+    double current_temp;
+};
+
+using VehiclePQ = std::priority_queue&lt;std::pair&lt;double,int&gt;, std::vector&lt;std::pair&lt;double,int&gt;&gt;, std::greater&lt;&gt;&gt;; // (temp_match_score, vehicle_id)
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Match shipments to refrigerated vehicles by compatibility and route via live traffic graph; if temperature drifts, trigger reroute or priority unloading.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Matching via PQ O(V log V) for V vehicles; routing O(E log V). Continuous telemetry checks O(1) per report.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 19 -->
+        <section id="case19" class="content-section">
+            <h2 class="problem-title">19. Event & Venue Management (Stadium / Park / Showroom)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Events require crowd control, dynamically adjusted transport, temporary parking and emergency staffing.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;map&gt;
+
+struct Event {
+    int id;
+    long long start_ts;
+    long long end_ts;
+    int expected_attendance;
+    std::vector&lt;int&gt; related_zones; // parking, stations
+};
+
+using EventCalendar = std::map&lt;long long, Event&gt;; // start_ts -> event
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>When event scheduled, provision extra public transport runs, reserve parking slots, pre-deploy medics/security, and adjust traffic signals to manage arrival/departure curves.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Event provisioning O(Z) by related zones; IPTS insertion cost depends on time-expanded graph complexity (O(V_TE log V_TE)).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <!-- CASE 20 -->
+        <section id="case20" class="content-section">
+            <h2 class="problem-title">20. Smart Surveillance & Anomaly Detection (Bank / Railway Station / Mall)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Automated CCTV analytics for crowd anomalies, unattended objects and suspicious behavior in high-value zones.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <pre><code>#include &lt;unordered_map&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+struct CameraFrameMeta {
+    long long ts;
+    int camera_id;
+    std::vector&lt;std::pair&lt;int,int&gt;&gt; bounding_boxes; // objects
+    std::vector&lt;std::string&gt; detected_labels; // person, bag, vehicle
+};
+
+using CameraFeedIndex = std::unordered_map&lt;int, std::vector&lt;CameraFrameMeta&gt;&gt;; // cam -> frames
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Run on-edge detectors or central models. Maintain short-term object tracks and compute anomalies (loitering, crowd spikes, left object). On anomaly, escalate to human operator with frames & location.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Per-frame detection cost depends on chosen model. Tracking and rule evaluation per object approx O(k) where k is number of tracked objects. Alerting O(1).</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <footer>
+            <p>Generated for the Pramod city project — additional cases 11–20. Copy this file to your repo (e.g., <code>smart_city_additional_cases.html</code>) and host via GitHub Pages if desired.</p>
+        </footer>
+    </div>
 </body>
 </html>
+
