@@ -1,319 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Smart City Business Cases (21–30)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pramod – Smart City Business Cases (21–30)</title>
 
-<!-- ================== INLINE CSS ================== -->
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f2f2f7;
-        margin: 0;
-        padding: 20px;
-    }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    h1 {
-        text-align: center;
-        background: #2d2d7c;
-        color: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-    }
-
-    .case-card {
-        background: white;
-        padding: 20px;
-        margin: 20px auto;
-        border-radius: 12px;
-        width: 85%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .case-card h2 {
-        color: #2d2d7c;
-    }
-
-    .case-card h3 {
-        color: #444;
-        margin-top: 15px;
-    }
-
-    pre {
-        background: #1e1e1e;
-        color: #f8f8f2;
-        padding: 12px;
-        border-radius: 8px;
-        overflow-x: auto;
-    }
-
-    code {
-        font-family: "Courier New", monospace;
-    }
-</style>
-<!-- ================== END CSS ================== -->
-
+    <!-- FULL CSS INCLUDED -->
+    <style>
+        :root {
+            --bg-dark: #0c0f1a;
+            --glass: rgba(255,255,255,0.08);
+            --accent: #00eaff;
+            --accent2: #9c59ff;
+            --text-light: #e8e8e8;
+            --radius: 14px;
+            --blur: 12px;
+            --code-bg: rgba(0,0,0,0.35);
+        }
+        *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
+        body{
+            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
+            color:var(--text-light);
+            padding:32px;
+        }
+        .container{max-width:1100px;margin:0 auto}
+        header.card, .content-section, .navigation {
+            background:var(--glass);
+            border-radius:var(--radius);
+            padding:28px;
+            border:1px solid rgba(255,255,255,0.08);
+            margin-bottom:22px;
+            backdrop-filter: blur(var(--blur));
+        }
+        .badge{
+            display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(0,234,255,0.08);color:var(--accent);font-weight:600;font-size:0.85rem;margin-bottom:10px;
+        }
+        h1{font-size:2.4rem;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;color:transparent;margin-bottom:6px}
+        p.lead{opacity:0.9;margin-bottom:8px}
+        .navigation h2{color:var(--accent);margin-bottom:10px}
+        .problem-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+        .problem-list a{
+            display:block;padding:12px;border-radius:10px;background:rgba(0,0,0,0.18);color:var(--text-light);text-decoration:none;font-weight:600;border-left:4px solid var(--accent2)
+        }
+        .content-section{padding:22px}
+        .problem-title{color:var(--accent);font-size:1.6rem;margin-bottom:10px;border-bottom:2px solid rgba(0,234,255,0.12);padding-bottom:8px}
+        h3{color:var(--accent2);margin-top:14px;margin-bottom:8px}
+        p{line-height:1.6;margin-bottom:8px;opacity:0.95}
+        pre{background:var(--code-bg);padding:12px;border-radius:8px;overflow:auto;margin:10px 0;font-family:monospace;font-size:0.9rem}
+        code{color:var(--text-light)}
+        .back-to-top{display:inline-block;margin-top:10px;color:var(--accent);text-decoration:none;font-weight:700}
+        footer{margin-top:18px;color:#9aa0b1;font-size:0.9rem}
+    </style>
 </head>
 
 <body>
+    <div class="container">
 
-<h1>SMART CITY BUSINESS CASES (21–30)</h1>
+        <!-- HEADER -->
+        <header class="card">
+            <span class="badge">Next-Gen City Design · DAA Project</span>
+            <h1>Pramod S Indi — Smart City Business Cases (21–30)</h1>
+            <p class="lead"><strong>Module:</strong> Smart City — Advanced Digital Infrastructure & Analytics Cases.</p>
+        </header>
 
-<!-- 21 -->
-<div class="case-card">
-    <h2>21. Smart Water Distribution & Leak Detection</h2>
-    <h3>Problem Statement</h3>
-    <p>The city’s water network must maintain equitable distribution while detecting leaks, abnormal usage and pipeline bursts in real-time.</p>
+        <!-- NAVIGATION -->
+        <div class="navigation">
+            <h2>Case Index (21–30)</h2>
+            <ul class="problem-list">
+                <li><a href="#case21">21. Solar Farm Load Balancing & Energy Forecasting</a></li>
+                <li><a href="#case22">22. Smart Parking with Dynamic Pricing</a></li>
+                <li><a href="#case23">23. Emergency Dispatch Optimization</a></li>
+                <li><a href="#case24">24. Waste Collection Route Optimization</a></li>
+                <li><a href="#case25">25. Water Leakage Detection & Pressure Management</a></li>
+                <li><a href="#case26">26. Public Transport Crowd Prediction</a></li>
+                <li><a href="#case27">27. School Bus Safety & Route Monitoring</a></li>
+                <li><a href="#case28">28. Citywide E-Vehicle Charging Optimization</a></li>
+                <li><a href="#case29">29. Disaster Early Warning System</a></li>
+                <li><a href="#case30">30. Smart Building Energy Automation</a></li>
+            </ul>
+        </div>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-#include &lt;vector&gt;
-#include &lt;unordered_map&gt;
+        <!-- ======================== CASES BEGIN ======================== -->
 
-struct PipeSegment {
-    int id;
-    double flow_rate;     // L/s
-    double pressure;      // psi
-    bool leak_suspected;
-};
+        <!-- CASE 21 -->
+        <section id="case21" class="content-section">
+            <h2 class="problem-title">21. Solar Farm Load Balancing & Energy Forecasting</h2>
+            <h3>Problem Statement</h3>
+            <p>City solar farms must forecast generation and distribute load to avoid grid instability and maximize storage usage.</p>
 
-using WaterNetwork = std::unordered_map&lt;int, PipeSegment&gt;;
-</code></pre>
-
-    <h3>Application Logic</h3>
-    <p>Compare predicted vs actual flow using pressure profiles.
-    If a sudden drop occurs, flag the segment as leak-suspected and auto-adjust valves.</p>
-
-    <h3>Complexity</h3>
-    <p>Pipe update O(1); network-wide balancing O(N).</p>
-</div>
-
-<!-- 22 -->
-<div class="case-card">
-    <h2>22. Waste Collection Optimization</h2>
-    <h3>Problem Statement</h3>
-    <p>Optimize garbage truck routing, predict bin fill levels and reduce fuel/time cost.</p>
-
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-#include &lt;queue&gt;
-#include &lt;vector&gt;
-
-struct Bin {
-    int id;
-    double fill_level; // 0–1
-    bool recyclable;
-};
-
-using PickupQueue = std::priority_queue&lt;std::pair&lt;double,int&gt;&gt;;
-</code></pre>
-
-    <h3>Application Logic</h3>
-    <p>Sensors push bins into PQ. Route planner selects bins above threshold and generates an A*/Dijkstra route.</p>
-
-    <h3>Complexity</h3>
-    <p>PQ insertion O(log N); routing O(E log V).</p>
-</div>
-
-<!-- 23 -->
-<div class="case-card">
-    <h2>23. Smart Parking Allocation</h2>
-    <h3>Problem Statement</h3>
-    <p>Provide real-time parking availability and reserve slots for EV, VIP or disabled users.</p>
-
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
+            <h3>Data Structures & C++ Code</h3>
+<pre><code>#include &lt;vector&gt;
 #include &lt;map&gt;
 
-struct ParkingSlot {
+struct SolarPanel {
     int id;
-    bool is_available;
-    bool is_ev;
-    bool is_reserved;
+    double current_output; // kW
+    double temperature;
+    double irradiation;
 };
 
-using ParkingMap = std::map&lt;int, ParkingSlot&gt;;
+using SolarFarm = std::map&lt;int, SolarPanel&gt;;
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Query nearest available slot based on constraints. Auto-reserve when driver approaches.</p>
+            <h3>Application Logic</h3>
+            <p>Use irradiation + temperature to forecast power. Distribute output to storage units and demand nodes using dynamic balancing.</p>
 
-    <h3>Complexity</h3>
-    <p>Lookup O(log N); updates O(1).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Forecasting per panel O(1). Farm-level balancing O(N log N) for N panels.</p>
+        </section>
 
-<!-- 24 -->
-<div class="case-card">
-    <h2>24. Emergency Response & Dispatch</h2>
-    <h3>Problem Statement</h3>
-    <p>Dispatch nearest emergency units using live traffic and incident severity.</p>
+        <!-- CASE 22 -->
+        <section id="case22" class="content-section">
+            <h2 class="problem-title">22. Smart Parking with Dynamic Pricing</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
+            <h3>Problem Statement</h3>
+            <p>Parking spots should adjust pricing based on demand, occupancy and location.</p>
+
+<pre><code>#include &lt;unordered_map&gt;
+
+struct ParkingSpot {
+    int id;
+    bool occupied;
+    double base_price;
+    double surge_factor; // dynamic multiplier
+};
+
+using ParkingMap = std::unordered_map&lt;int, ParkingSpot&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Compute surge_factor = f(occupancy ratio). Update pricing every 5 minutes. Show availability to drivers.</p>
+
+            <h3>Analysis</h3>
+            <p>Map updates O(1). Surge computation O(N).</p>
+        </section>
+
+        <!-- CASE 23 -->
+        <section id="case23" class="content-section">
+            <h2 class="problem-title">23. Emergency Dispatch Optimization</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Ambulance, fire and police require fastest dispatch using real-time traffic routing.</p>
+
+<pre><code>#include &lt;queue&gt;
 #include &lt;vector&gt;
-#include &lt;string&gt;
 
-struct Unit {
+struct DispatchUnit {
     int id;
     double lat, lon;
     bool available;
-    std::string type; // ambulance, fire, police
 };
 
-using UnitList = std::vector&lt;Unit&gt;;
+using UnitList = std::vector&lt;DispatchUnit&gt;;
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Compute nearest available unit via haversine distance and traffic-based routing.</p>
+            <h3>Application Logic</h3>
+            <p>Pick nearest available unit + shortest path via Dijkstra on road network. Include hospital load balancing.</p>
 
-    <h3>Complexity</h3>
-    <p>Nearest search O(N); routing O(E log V).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Routing O(E log V). Selection O(N).</p>
+        </section>
 
-<!-- 25 -->
-<div class="case-card">
-    <h2>25. Smart Energy Grid & Load Balancing</h2>
-    <h3>Problem Statement</h3>
-    <p>Balance load across regions and prevent transformer overloading.</p>
+        <!-- CASE 24 -->
+        <section id="case24" class="content-section">
+            <h2 class="problem-title">24. Waste Collection Route Optimization</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-#include &lt;unordered_map&gt;
+            <h3>Problem Statement</h3>
+            <p>Garbage trucks require minimum-distance routes based on bin fullness sensors.</p>
 
-struct GridNode {
+<pre><code>#include &lt;vector&gt;
+
+struct WasteBin {
     int id;
-    double load_kw;
-    double capacity_kw;
+    double fill_level; // 0 to 1
+    double lat, lon;
 };
-
-using GridMap = std::unordered_map&lt;int, GridNode&gt;;
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Shift load when node exceeds 85% capacity and prioritize critical zones.</p>
+            <h3>Application Logic</h3>
+            <p>Select bins above threshold → solve TSP/Greedy nearest-neighbor to schedule pickup.</p>
 
-    <h3>Complexity</h3>
-    <p>Checks O(1); balancing O(N).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Greedy route O(N²). Using heuristics reduces runtime.</p>
+        </section>
 
-<!-- 26 -->
-<div class="case-card">
-    <h2>26. Public Transportation Scheduling</h2>
-    <h3>Problem Statement</h3>
-    <p>Adjust fleet dynamically based on ridership and events.</p>
+        <!-- CASE 25 -->
+        <section id="case25" class="content-section">
+            <h2 class="problem-title">25. Water Leakage Detection & Pressure Management</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-#include &lt;vector&gt;
+            <h3>Problem Statement</h3>
+            <p>City water lines need real-time monitoring for pressure drops indicating leaks.</p>
 
-struct TripRecord {
+<pre><code>#include &lt;map&gt;
+
+struct PipeNode {
+    int id;
+    double pressure;
+    double flow_rate;
+};
+
+using PipeNetwork = std::map&lt;int, PipeNode&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Detect sudden pressure drops → isolate section → reroute flow. Alert maintenance teams.</p>
+
+            <h3>Analysis</h3>
+            <p>Pressure comparison O(N). Isolation logic O(log N).</p>
+        </section>
+
+        <!-- CASE 26 -->
+        <section id="case26" class="content-section">
+            <h2 class="problem-title">26. Public Transport Crowd Prediction</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Predict passenger load for buses/metros based on time, events and historical data.</p>
+
+<pre><code>#include &lt;vector&gt;
+
+struct CrowdSample {
     long long ts;
     int route_id;
-    int passengers;
+    int passenger_count;
 };
-
-using TripSeries = std::vector&lt;TripRecord&gt;;
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Analyze passenger time-series and alter frequency depending on demand.</p>
+            <h3>Application Logic</h3>
+            <p>Run moving averages + anomaly detection. Adjust bus frequency during peak hours.</p>
 
-    <h3>Complexity</h3>
-    <p>Window analysis O(N); schedule generation O(R log R).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Forecast window O(W). Total O(N).</p>
+        </section>
 
-<!-- 27 -->
-<div class="case-card">
-    <h2>27. Smart Air Quality & Health Advisory</h2>
-    <h3>Problem Statement</h3>
-    <p>Monitor air quality, predict spikes and generate health alerts.</p>
+        <!-- CASE 27 -->
+        <section id="case27" class="content-section">
+            <h2 class="problem-title">27. School Bus Safety & Route Monitoring</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-#include &lt;map&gt;
+            <h3>Problem Statement</h3>
+            <p>Track school buses, speed, stops, and notify parents with ETA.</p>
 
-struct AQSample {
+<pre><code>#include &lt;string&gt;
+
+struct BusTelem {
+    int bus_id;
+    double speed;
+    double lat, lon;
     long long ts;
-    double pm25;
-    double pm10;
-    double no2;
 };
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Use rolling AQI index and ML-based forecasting to issue warnings.</p>
+            <h3>Application Logic</h3>
+            <p>Monitor speed thresholds, geofencing for schools and homes, send alerts.</p>
 
-    <h3>Complexity</h3>
-    <p>Sample update O(log N); forecast O(N).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Real-time checks O(1) per telemetry packet.</p>
+        </section>
 
-<!-- 28 -->
-<div class="case-card">
-    <h2>28. City-Wide Noise Pollution Monitoring</h2>
-    <h3>Problem Statement</h3>
-    <p>Track noise at night markets, airports, industries and generate violation alerts.</p>
+        <!-- CASE 28 -->
+        <section id="case28" class="content-section">
+            <h2 class="problem-title">28. Citywide EV Charging Optimization</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-struct NoiseReading {
-    long long ts;
-    double db_value;
-    int location_id;
-};
-</code></pre>
+            <h3>Problem Statement</h3>
+            <p>Distribute EV charging load to avoid transformer overloads.</p>
 
-    <h3>Application Logic</h3>
-    <p>Compare readings with zonal permissible dB levels and notify authorities.</p>
+<pre><code>#include &lt;unordered_map&gt;
 
-    <h3>Complexity</h3>
-    <p>Threshold check O(1) per reading.</p>
-</div>
-
-<!-- 29 -->
-<div class="case-card">
-    <h2>29. Smart Street Light Automation</h2>
-    <h3>Problem Statement</h3>
-    <p>Automatically brighten, dim or shut off lights based on object detection and time.</p>
-
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-struct LightNode {
+struct Charger {
     int id;
-    bool on;
-    double brightness; // 0–1
-    bool motion_detected;
+    bool occupied;
+    double current_load;
 };
+
+using ChargerMap = std::unordered_map&lt;int, Charger&gt;;
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Increase brightness on motion; dim during low traffic; switch off at sunrise.</p>
+            <h3>Application Logic</h3>
+            <p>Predict load → schedule delayed charging → shift load to low-usage hours.</p>
 
-    <h3>Complexity</h3>
-    <p>Update O(1) per node.</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Load balancing O(N log N).</p>
+        </section>
 
-<!-- 30 -->
-<div class="case-card">
-    <h2>30. Smart Flood Monitoring System</h2>
-    <h3>Problem Statement</h3>
-    <p>Predict water-rise levels near rivers, lakes and storm drains to prevent disasters.</p>
+        <!-- CASE 29 -->
+        <section id="case29" class="content-section">
+            <h2 class="problem-title">29. Disaster Early Warning System</h2>
 
-    <h3>Data Structures & C++ Code</h3>
-<pre><code>
-struct WaterLevel {
-    int sensor_id;
-    double height_m;
+            <h3>Problem Statement</h3>
+            <p>Monitor environmental sensors for floods, earthquakes or storms.</p>
+
+<pre><code>#include &lt;vector&gt;
+
+struct Sensor {
+    int id;
+    double reading;
     long long ts;
 };
 </code></pre>
 
-    <h3>Application Logic</h3>
-    <p>Trigger early flood warnings using rise-rate detection and rainfall correlations.</p>
+            <h3>Application Logic</h3>
+            <p>Threshold breach → instant alert → automated evacuation route suggestions.</p>
 
-    <h3>Complexity</h3>
-    <p>Update O(1); trend computation O(N).</p>
-</div>
+            <h3>Analysis</h3>
+            <p>Sensor check O(N). Alert broadcast O(1).</p>
+        </section>
 
+        <!-- CASE 30 -->
+        <section id="case30" class="content-section">
+            <h2 class="problem-title">30. Smart Building Energy Automation</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Buildings need automated HVAC, lighting and lift energy optimization.</p>
+
+<pre><code>#include &lt;map&gt;
+
+struct BuildingZone {
+    int id;
+    double temp;
+    double occupancy;
+    bool light_on;
+};
+
+using ZoneMap = std::map&lt;int, BuildingZone&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Turn off lights in empty rooms, adjust AC by occupancy, optimize lift operations during peak hours.</p>
+
+            <h3>Analysis</h3>
+            <p>Zone update O(N). Control logic O(1) per zone.</p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>Generated for Pramod Smart City Project — Business Cases 21–30.</p>
+        </footer>
+
+    </div>
 </body>
 </html>
