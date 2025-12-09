@@ -1,101 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sujal – Emergency Response Routing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0c0f1a;
-      --glass: rgba(255, 255, 255, 0.16);
-      --accent: #00eaff;
-      --accent2: #9c59ff;
-      --text-light: #e8e8e8;
-      --radius: 18px;
-      --blur: 18px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-    body {
-      background: radial-gradient(circle at top, #1b2238, #090b14 70%);
-      color: var(--text-light);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .card {
-      max-width: 900px;
-      width: 100%;
-      background: var(--glass);
-      backdrop-filter: blur(var(--blur));
-      border-radius: var(--radius);
-      padding: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(0, 234, 255, 0.1);
-      color: var(--accent);
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 6px;
-      background: linear-gradient(90deg, #fff, var(--accent));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    h2 { margin-top: 24px; margin-bottom: 8px; font-size: 1.3rem; }
-    p { margin-bottom: 8px; opacity: 0.9; }
-    ul { margin-left: 18px; margin-top: 6px; }
-    li { margin-bottom: 4px; }
-    .back-link {
-      margin-top: 24px;
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 16px;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .back-link:hover { background: var(--accent2); color: #fff; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sujal – 10 More Smart City Business Cases (31-40)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0c0f1a;
+            --glass: rgba(255, 255, 255, 0.16);
+            --accent: #00eaff;
+            --accent2: #9c59ff;
+            --text-light: #e8e8e8;
+            --radius: 18px;
+            --blur: 18px;
+            --code-bg: rgba(0, 0, 0, 0.3);
+            --link-hover: #1c2747;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        header.card, .content-section {
+            background: var(--glass);
+            backdrop-filter: blur(var(--blur));
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+            margin-bottom: 30px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 234, 255, 0.1);
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .navigation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .navigation h2 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .problem-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .problem-list li a {
+            display: block;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+            border-left: 5px solid var(--accent2);
+        }
+        .problem-list li a:hover {
+            background: var(--link-hover);
+            color: var(--accent);
+        }
+        .content-section {
+            padding: 30px 40px;
+        }
+        .content-section:target {
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent), 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+        h2.problem-title { 
+            margin-top: 0;
+            margin-bottom: 15px; 
+            font-size: 2rem;
+            color: var(--accent);
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(0, 234, 255, 0.3);
+        }
+        h3 { margin-top: 20px; margin-bottom: 6px; font-size: 1.4rem; color: var(--accent2); }
+        p { margin-bottom: 8px; opacity: 0.9; line-height: 1.6; }
+        ul { margin-left: 18px; margin-top: 6px; margin-bottom: 12px; }
+        li { margin-bottom: 4px; }
+        pre {
+            background: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--text-light);
+        }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body>
-  <main class="card">
-    <span class="badge">Next‑Gen City Design · DAA Project</span>
-    <h1>Sujal S Gowda</h1>
-    <p><b>Module:</b> Emergency Response Routing</p>
+    <div class="container">
+        
+        <header class="card">
+            <span class="badge">Next‑Gen City Design · DAA Project</span>
+            <h1>Pramod S Indi</h1>
+            <p><b>Module:</b> Smart City Advanced Infrastructure (Cases 31-40)</p>
+            <p>This page details the next 10 business cases (31-40) for smart city development based on the Pramod City map.</p>
+        </header>
+        
+        <div class="navigation">
+            <h2>Select a Business Case to View Details</h2>
+            <ul class="problem-list">
+                <li><a href="#case31">31. Smart Water Quality Monitoring 🧪</a></li>
+                <li><a href="#case32">32. Citizen Feedback Analytics Platform 📱</a></li>
+                <li><a href="#case33">33. Predictive Crime Hotspot Mapping 👮</a></li>
+                <li><a href="#case34">34. Dynamic School Zone Safety System 🏫</a></li>
+                <li><a href="#case35">35. Hospital Bed & Resource Allocation 🏥</a></li>
+                <li><a href="#case36">36. Smart Vending Machine Inventory 🍎</a></li>
+                <li><a href="#case37">37. Bridge & Structural Health Monitoring 🌉</a></li>
+                <li><a href="#case38">38. Micro-Mobility Fleet Management 🚲</a></li>
+                <li><a href="#case39">39. Noise Pollution Monitoring & Control 🔇</a></li>
+                <li><a href="#case40">40. Citizen Digital Identity Verification 🆔</a></li>
+            </ul>
+        </div>
 
-    <h2>Problem Statement</h2>
-    <p>Explain delays in ambulance, fire, and police response times because of traffic, road closures, or poor routing.</p>
+        <hr>
 
-    <h2>Algorithms Used</h2>
-    <ul>
-      <li>Shortest path algorithms like Dijkstra or A* on a weighted city graph.</li>
-      <li>Multi‑source BFS for finding nearest available emergency units.</li>
-      <li>Priority queues for always picking the next best route expansion.</li>
-    </ul>
+        <section id="case31" class="content-section">
+            <h2 class="problem-title">31. Smart Water Quality Monitoring 🧪</h2>
+            
+            <h3>Problem Statement</h3>
+            <p>Drinking water supply to Residential Areas and Hospital requires continuous monitoring of pH, turbidity, chlorine levels, and contaminants from Industrial Area runoff.</p>
 
-    <h2>Key Features</h2>
-    <ul>
-      <li>Fast route generation from emergency station to incident and hospital.</li>
-      <li>Automatic re‑routing when roads become blocked.</li>
-      <li>Support for priority levels (critical, high, normal).</li>
-    </ul>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A Circular Buffer maintains recent readings for trend analysis. Hash Map stores sensor calibration data and threshold limits.</p>
+            <div class="diagram">[Water Quality Sensor Network]</div>
+            <pre><code>
+#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;deque&gt;
+#include &lt;cmath&gt;
 
-    <h2>Time & Space Complexity</h2>
-    <p>Describe complexities of your routing algorithm and how it behaves as the number of junctions and roads increases.</p>
+const int BUFFER_SIZE = 100; // Recent readings window
 
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </main>
+struct WaterSample {
+    long long timestamp;
+    int sensor_id;
+    double ph, turbidity_ntu, chlorine_ppm;
+};
+
+using QualityBuffer = std::deque&lt;WaterSample&gt;; // Circular buffer
+using SensorThresholds = std::unordered_map&lt;int, std::vector&lt;double&gt;&gt;; // sensor_id -> [ph_min, ph_max, ...]
+            </code></pre>
+
+            <h3>Application Logic</h3>
+            <ul>
+                <li>Trend Detection: Moving averages on QualityBuffer detect gradual contamination.</li>
+                <li>Immediate Alerts: Compare against SensorThresholds; if pH &lt; 6.5 or turbidity > 5 NTU, trigger purification boost.</li>
+                <li>Predictive Flushing: If 3 consecutive samples exceed 80% of threshold, initiate localized water flushing.</li>
+            </ul>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Buffer maintenance is \(O(1)\) amortized per sample. Threshold checks are \(O(1)\). Trend analysis over window is \(O(W)\) where \(W=100\). [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case32" class="content-section">
+            <h2 class="problem-title">32. Citizen Feedback Analytics Platform 📱</h2>
+
+            <h3>Problem Statement</h3>
+            <p>City services (Market, Park, Residential) need real-time citizen feedback processing for potholes, lighting, cleanliness via mobile/web apps.</p>
+            
+            <h3>Data Structures & C++ Code</h3>
+            <p>Priority Queue prioritizes urgent issues (safety > cleanliness). Spatial Index (QuadTree concept via map) for location clustering.</p>
+            <div class="diagram">[Feedback Heatmap]</div>
+            <pre><code>
+#include &lt;queue&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+
+struct Feedback {
+    std::string issue_type; // "pothole", "lighting", "garbage"
+    int priority; // 1=critical safety, 5=minor
+    double lat, lon;
+    long long timestamp;
+    bool operator&gt;(const Feedback&amp; other) const {
+        return priority &gt; other.priority;
+    }
+};
+
+using FeedbackPQ = std::priority_queue&lt;Feedback, std::vector&lt;Feedback&gt;, std::greater&lt;Feedback&gt;&gt;;
+using GeoCluster = std::map&lt;std::pair&lt;int,int&gt;, int&gt;; // grid_x_y -> count
+            </code></pre>
+
+            <h3>Application Logic</h3>
+            <ul>
+                <li>Triage: New feedback added to FeedbackPQ; highest priority dispatched first.</li>
+                <li>Clustering: GeoCluster identifies problem hotspots (3+ reports in 100m grid cell).</li>
+                <li>Trend Reports: Daily aggregation shows service request patterns by zone.</li>
+            </ul>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Priority queue operations \(O(\log F)\) for \(F\) feedback items. Spatial clustering \(O(F)\) with grid hashing. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case33" class="content-section">
+            <h2 class="problem-title">33. Predictive Crime Hotspot Mapping 👮</h2>
+            <h3>Problem Statement</h3>
+            <p>Market, Railway Station, Stadium need predictive policing - forecast crime hotspots using historical data, events, and time patterns.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Time Series Matrix tracks incidents by hour/location. Weighted Graph connects correlated crime types/locations.</p>
+            <div class="diagram">[Crime Heatmap]</div>
+            <pre><code>
+#include &lt;vector&gt;
+#include &lt;array&gt;
+
+struct CrimeIncident {
+    int grid_x, grid_y;
+    int hour; // 0-23
+    std::string type; // "theft", "vandalism"
+};
+
+using HourlyCrimeGrid = std::vector&lt;std::vector&lt;int&gt;&gt;; // [hour][grid_id] -> count
+using RiskScore = std::vector&lt;double&gt;; // grid_id -> predicted risk
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Update HourlyCrimeGrid with new incidents. Compute RiskScore as weighted sum of recent hours + event multipliers. Deploy patrols to top-5 grids. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Grid updates \(O(1)\). Risk computation \(O(G \times H)\) where \(G\)=grids, \(H\)=hours (24), efficient for city scale. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case34" class="content-section">
+            <h2 class="problem-title">34. Dynamic School Zone Safety System 🏫</h2>
+            <h3>Problem Statement</h3>
+            <p>School zones need adaptive speed limits, pedestrian signals, and crossing guard alerts during peak hours and special events.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Interval Tree manages active school events. Circular Queue tracks recent vehicle speeds.</p>
+            <div class="diagram">[School Zone]</div>
+            <pre><code>
+#include &lt;queue&gt;
+#include &lt;set&gt;
+
+struct SpeedReading {
+    double speed_kmh;
+    long long timestamp;
+};
+
+struct SchoolEvent {
+    int school_id;
+    long long start_time, end_time;
+    int expected_students;
+};
+
+using SpeedQueue = std::deque&lt;SpeedReading&gt;; // Recent 5min
+using ActiveEvents = std::multiset&lt;SchoolEvent&gt;; // By start_time
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Activate zone restrictions during ActiveEvents. Monitor SpeedQueue; if avg > 30kmh during school hours, trigger cameras + alerts. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Event lookup \(O(\log E)\), speed averaging \(O(1)\) with running sum. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case35" class="content-section">
+            <h2 class="problem-title">35. Hospital Bed & Resource Allocation 🏥</h2>
+            <h3>Problem Statement</h3>
+            <p>Dynamic allocation of ICU beds, ventilators, blood stock based on incoming emergency cases and predicted surges.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Resource Pool with availability matrix. Priority Queue for urgent cases.</p>
+            <div class="diagram">[Hospital Dashboard]</div>
+            <pre><code>
+#include &lt;queue&gt;
+#include &lt;unordered_map&gt;
+
+struct Patient {
+    int priority; // 1=critical, 5=stable
+    std::string required_resource; // "ICU", "ventilator"
+};
+
+struct Resource {
+    int available_beds;
+    int total_beds;
+};
+
+using ResourcePool = std::unordered_map&lt;std::string, Resource&gt;;
+using PatientPQ = std::priority_queue&lt;Patient, std::vector&lt;Patient&gt;, std::greater&lt;Patient&gt;&gt;;
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Match highest priority Patient from PQ to available ResourcePool slots. Predictive discharge scheduling frees beds proactively. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Matching \(O(\log P + R)\), \(P\)=patients, \(R\)=resource types. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case36" class="content-section">
+            <h2 class="problem-title">36. Smart Vending Machine Inventory 🍎</h2>
+            <h3>Problem Statement</h3>
+            <p>Market and Railway Station vending machines need predictive restocking based on sales velocity, weather, events.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>SKU Inventory with exponential moving averages. Restock Priority Queue.</p>
+            <div class="diagram">[Vending Network]</div>
+            <pre><code>
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+
+struct SKU {
+    std::string name;
+    int stock_level;
+    double sales_velocity; // units/hour EMA
+    double alpha = 0.3; // EMA smoothing
+};
+
+struct VendingMachine {
+    int machine_id;
+    std::vector&lt;SKU&gt; inventory;
+};
+
+using RestockPQ = std::priority_queue&lt;std::pair&lt;double, int&gt;&gt;; // (restock_urgency, machine_id)
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Update sales_velocity EMA after each sale. Compute restock_urgency = velocity/stock. Dispatch to top priority machines. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>EMA update \(O(1)\), priority queue \(O(\log M)\) for \(M\) machines. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case37" class="content-section">
+            <h2 class="problem-title">37. Bridge & Structural Health Monitoring 🌉</h2>
+            <h3>Problem Statement</h3>
+            <p>Bridges over rivers and major road overpasses need vibration, strain, and corrosion monitoring for preventive maintenance.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Sensor Fusion with anomaly detection thresholds. Time Series Buffer.</p>
+            <div class="diagram">[Bridge Sensors]</div>
+            <pre><code>
+#include &lt;deque&gt;
+#include &lt;vector&gt;
+
+struct SensorReading {
+    double vibration_g, strain_microstrain, corrosion_mm_year;
+    long long timestamp;
+};
+
+using SensorBuffer = std::deque&lt;SensorReading&gt;; // Last 1 hour
+using AnomalyThresholds = std::vector&lt;double&gt;; // [vib_max, strain_max, corr_max]
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Statistical process control on SensorBuffer. 3-sigma violations trigger structural engineers + traffic management. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Running statistics \(O(1)\), anomaly detection \(O(1)\) per reading. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case38" class="content-section">
+            <h2 class="problem-title">38. Micro-Mobility Fleet Management 🚲</h2>
+            <h3>Problem Statement</h3>
+            <p>Bikes/scooters in Residential Areas and Market need dynamic repositioning based on demand hotspots and battery levels.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Vehicle State Map. Imbalance Detection via spatial aggregation.</p>
+            <div class="diagram">[Bike Heatmap]</div>
+            <pre><code>
+#include &lt;unordered_map&gt;
+#include &lt;vector&gt;
+
+struct Vehicle {
+    int id;
+    double lat, lon;
+    int battery_pct;
+    bool available;
+};
+
+using FleetMap = std::unordered_map&lt;int, Vehicle&gt;;
+using ZoneDemand = std::vector&lt;int&gt;; // [zone_id] -> demand score
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Compute ZoneDemand from trips/availability ratio. Dispatch rebalancers from surplus to deficit zones. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Zone aggregation \(O(V)\), \(V\)=vehicles. Dispatch planning uses greedy assignment. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case39" class="content-section">
+            <h2 class="problem-title">39. Noise Pollution Monitoring & Control 🔇</h2>
+            <h3>Problem Statement</h3>
+            <p>Industrial Area, Market, Stadium noise levels affect Residential Areas. Need source identification and mitigation.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Acoustic Grid with direction-of-arrival estimation. Event Log.</p>
+            <div class="diagram">[Noise Map]</div>
+            <pre><code>
+#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+
+using NoiseGrid = std::vector&lt;std::vector&lt;double&gt;&gt;; // [x][y] -> dB
+struct NoiseEvent {
+    long long timestamp;
+    double peak_db;
+    std::string source_type; // "construction", "traffic"
+};
+using EventLog = std::unordered_map&lt;long long, NoiseEvent&gt;;
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Triangulate sources from NoiseGrid. >85dB events trigger warnings to source + nearby residents. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Grid updates \(O(1)\), triangulation \(O(S)\) for \(S\) sensors. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+        <section id="case40" class="content-section">
+            <h2 class="problem-title">40. Citizen Digital Identity Verification 🆔</h2>
+            <h3>Problem Statement</h3>
+            <p>Secure access to city services (Hospital, Market payments, Public Transport) requires fast biometric + document verification.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>Biometric Template Vault. Verification Session Queue.</p>
+            <div class="diagram">[ID Verification]</div>
+            <pre><code>
+#include &lt;queue&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+
+struct BiometricTemplate {
+    std::string citizen_id;
+    std::vector&lt;double&gt; face_embedding; // 512-dim
+};
+
+using TemplateVault = std::unordered_map&lt;std::string, BiometricTemplate&gt;;
+using VerificationQueue = std::queue&lt;std::string&gt;; // pending sessions
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Cosine similarity matching against TemplateVault. Multi-factor (face + OTP) for high-security services. [file:1]</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Embedding comparison \(O(D)\) for dimension \(D=512\), vault lookup \(O(1)\) hash. [file:1]</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
+
+    </div>
 </body>
 </html>
-
