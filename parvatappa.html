@@ -1,195 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pramod – 10 Smart City Business Cases</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- General Styling & Variables --- */
-        :root {
-            --bg-dark: #0c0f1a;
-            --glass: rgba(255, 255, 255, 0.16);
-            --accent: #00eaff;
-            --accent2: #9c59ff;
-            --text-light: #e8e8e8;
-            --radius: 18px;
-            --blur: 18px;
-            --code-bg: rgba(0, 0, 0, 0.3);
-            --link-hover: #1c2747;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-        html { scroll-behavior: smooth; } /* Smooth scrolling to anchors */
-        body {
-            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
-            color: var(--text-light);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        
-        /* --- Card & Header Styling --- */
-        header.card, .content-section {
-            background: var(--glass);
-            backdrop-filter: blur(var(--blur));
-            border-radius: var(--radius);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-            margin-bottom: 30px;
-        }
-        .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(0, 234, 255, 0.1);
-            color: var(--accent);
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-        }
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 6px;
-            background: linear-gradient(90deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        
-        /* --- Navigation Menu Styling --- */
-        .navigation {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius);
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        .navigation h2 {
-            font-size: 1.6rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-        .problem-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        .problem-list li a {
-            display: block;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s, color 0.3s;
-            border-left: 5px solid var(--accent2);
-        }
-        .problem-list li a:hover {
-            background: var(--link-hover);
-            color: var(--accent);
-        }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pramod – 20 Smart City Business Cases (Data Structures & Algos)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General Styling & Variables --- */
+        :root {
+            --bg-dark: #0c0f1a;
+            --glass: rgba(255, 255, 255, 0.16);
+            --glass2: rgba(255,255,255,0.08); /* Lighter glass for nav/supp sections */
+            --accent: #00eaff;
+            --accent2: #9c59ff;
+            --text-light: #e8e8e8;
+            --radius: 18px;
+            --blur: 18px;
+            --code-bg: rgba(0, 0, 0, 0.3);
+            --link-hover: #1c2747;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+        html { scroll-behavior: smooth; } /* Smooth scrolling to anchors */
+        body {
+            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* --- Card & Header Styling --- */
+        header.card, .content-section {
+            background: var(--glass);
+            backdrop-filter: blur(var(--blur));
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+            margin-bottom: 30px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 234, 255, 0.1);
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        /* --- Navigation Menu Styling --- */
+        .navigation {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .navigation h2 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .problem-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for density */
+            gap: 15px;
+        }
+        .problem-list li a {
+            display: block;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+            border-left: 5px solid var(--accent2);
+        }
+        .problem-list li a:hover {
+            background: var(--link-hover);
+            color: var(--accent);
+        }
 
-        /* --- Content Section Styling --- */
-        .content-section {
-            padding: 30px 40px;
-        }
-        .content-section:target {
-            /* Highlight the section when navigated via anchor link */
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent), 0 0 5px rgba(255, 255, 255, 0.2);
-        }
+        /* --- Content Section Styling --- */
+        .content-section {
+            padding: 30px 40px;
+        }
+        .content-section:target {
+            /* Highlight the section when navigated via anchor link */
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent), 0 0 5px rgba(255, 255, 255, 0.2);
+        }
 
-        h2.problem-title { 
-            margin-top: 0;
-            margin-bottom: 15px; 
-            font-size: 2rem;
-            color: var(--accent);
-            padding-bottom: 5px;
-            border-bottom: 2px solid rgba(0, 234, 255, 0.3);
-        }
-        h3 { margin-top: 20px; margin-bottom: 6px; font-size: 1.4rem; color: var(--accent2); }
-        p { margin-bottom: 8px; opacity: 0.9; line-height: 1.6; }
-        ul { margin-left: 18px; margin-top: 6px; margin-bottom: 12px; }
-        li { margin-bottom: 4px; }
-        
-        /* --- Code Block Styling --- */
-        pre {
-            background: var(--code-bg);
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            color: var(--text-light);
-        }
-        .back-to-top {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        /* Image tag styling for better visibility */
-        .diagram {
-            margin: 15px 0;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-            color: var(--accent);
-        }
-    </style>
+        h2.problem-title { 
+            margin-top: 0;
+            margin-bottom: 15px; 
+            font-size: 2rem;
+            color: var(--accent);
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(0, 234, 255, 0.3);
+        }
+        h3 { margin-top: 20px; margin-bottom: 6px; font-size: 1.4rem; color: var(--accent2); }
+        p { margin-bottom: 8px; opacity: 0.9; line-height: 1.6; }
+        ul { margin-left: 18px; margin-top: 6px; margin-bottom: 12px; }
+        li { margin-bottom: 4px; }
+        
+        /* --- Code Block Styling --- */
+        pre {
+            background: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--text-light);
+        }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        /* Image tag styling for better visibility */
+        .diagram {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        
-        <header class="card">
-            <span class="badge">Next‑Gen City Design · DAA Project</span>
-            <h1>Pramod S Indi</h1>
-            <p><b>Module:</b> Smart Traffic Optimization System</p>
-            <p>This page details the **10 business cases** identified for smart city development based on the Pramod City map.</p>
-        </header>
-        
-        <div class="navigation">
-            <h2>Select a Business Case to View Details</h2>
-            <ul class="problem-list">
-                <li><a href="#case1">1. Smart Traffic Signal Optimization 🚦</a></li>
-                <li><a href="#case2">2. Emergency Vehicle Route Prioritization 🚨</a></li>
-                <li><a href="#case3">3. Smart Public Parking Management 🅿️</a></li>
-                <li><a href="#case4">4. Integrated Public Transport System (IPTS) 🚌</a></li>
-                <li><a href="#case5">5. Water Resource Management & Flood Prediction 🌊</a></li>
-                <li><a href="#case6">6. Solid Waste Collection Route Optimization 🗑️</a></li>
-                <li><a href="#case7">7. Smart Energy Grid Balancing ⚡</a></li>
-                <li><a href="#case8">8. Air Quality Monitoring & Mitigation 🌬️</a></li>
-                <li><a href="#case9">9. Disaster Response and Evacuation Planning 🆘</a></li>
-                <li><a href="#case10">10. Last-Mile Delivery Optimization 🛵</a></li>
-            </ul>
-        </div>
+    <div class="container">
+        
+        <header class="card">
+            <span class="badge">Next‑Gen City Design · DAA Project</span>
+            <h1>Pramod S Indi — 20 Smart City Business Cases</h1>
+            <p><b>Module:</b> Smart Traffic Optimization System & Supplemental Cases</p>
+            <p>This page details **20 business cases** identified for smart city development based on the Pramod City map, focusing on the underlying Data Structures and Algorithms (DS&A) implemented in C++.</p>
+        </header>
+        
+        <div class="navigation">
+            <h2>Select a Business Case to View Details</h2>
+            <ul class="problem-list">
+                <li><a href="#case1">1. Smart Traffic Signal Optimization 🚦</a></li>
+                <li><a href="#case2">2. Emergency Vehicle Route Prioritization 🚨</a></li>
+                <li><a href="#case3">3. Smart Public Parking Management 🅿️</a></li>
+                <li><a href="#case4">4. Integrated Public Transport System (IPTS) 🚌</a></li>
+                <li><a href="#case5">5. Water Resource Management & Flood Prediction 🌊</a></li>
+                <li><a href="#case6">6. Solid Waste Collection Route Optimization 🗑️</a></li>
+                <li><a href="#case7">7. Smart Energy Grid Balancing ⚡</a></li>
+                <li><a href="#case8">8. Air Quality Monitoring & Mitigation 🌬️</a></li>
+                <li><a href="#case9">9. Disaster Response and Evacuation Planning 🆘</a></li>
+                <li><a href="#case10">10. Last-Mile Delivery Optimization 🛵</a></li>
+                <li><a href="#case11">11. Smart Retail Analytics & Demand Forecasting</a></li>
+                <li><a href="#case12">12. Visitor Wayfinding & Local Discovery</a></li>
+                <li><a href="#case13">13. Predictive Road & Pavement Maintenance</a></li>
+                <li><a href="#case14">14. Smart Streetlighting & Adaptive Lighting</a></li>
+                <li><a href="#case15">15. Public Wi-Fi / Bandwidth Orchestration</a></li>
+                <li><a href="#case16">16. Irrigation Scheduling & Precision Farming</a></li>
+                <li><a href="#case17">17. Industrial Emissions & Compliance Monitoring</a></li>
+                <li><a href="#case18">18. Cold-Chain & Perishable Logistics</a></li>
+                <li><a href="#case19">19. Event & Venue Management</a></li>
+                <li><a href="#case20">20. Smart Surveillance & Anomaly Detection</a></li>
+            </ul>
+        </div>
 
-        <hr>
+        <hr>
 
-        <section id="case1" class="content-section">
-            <h2 class="problem-title">1. Smart Traffic Signal Optimization 🚦</h2>
-            
-            <h3>Problem Statement</h3>
-            <p>The current fixed-time traffic signals in the densely populated **Residential Area** and high-traffic junctions lead to unnecessary long waiting times on less-busy roads. This increases fuel consumption, commuter frustration, and overall congestion during non-peak hours.</p>
+        <section id="case1" class="content-section">
+            <h2 class="problem-title">1. Smart Traffic Signal Optimization 🚦</h2>
+            
+            <h3>Problem Statement</h3>
+            <p>The current fixed-time traffic signals in the densely populated **Residential Area** and high-traffic junctions lead to unnecessary long waiting times on less-busy roads. This increases fuel consumption, commuter frustration, and overall congestion during non-peak hours.</p>
 
-            <h3>Data Structures & C++ Code</h3>
-            <p>We use a **Graph** (`std::map`) to model the road network and a **Min-Heap** (`std::priority_queue`) for efficient route planning using Dijkstra's/A* algorithm.</p>
-            <div class="diagram"></div>
-            <pre><code>
+            <h3>Data Structures & C++ Code</h3>
+            <p>We use a **Graph** (<code>std::map</code>) to model the road network and a **Min-Heap** (<code>std::priority_queue</code>) for efficient route planning using Dijkstra's/A* algorithm.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;queue&gt;
@@ -197,49 +208,49 @@
 
 // Define a structure for a road segment (Edge)
 struct RoadSegment {
-    int destination_junction;
-    int current_weight; 
-    int base_weight;    
+    int destination_junction;
+    int current_weight; 
+    int base_weight;    
 };
 
 // Define the Junction/Node structure
-using Junction = int; 
+using Junction = int; 
 using TrafficGraph = std::map&lt;Junction, std::vector&lt;RoadSegment&gt;&gt;;
 
 // Min-Heap (Priority Queue) element for Dijkstra's
 // Stores: (Current_Cost, Junction_ID)
 using PQElement = std::pair&lt;int, Junction&gt;;
-            </code></pre>
+            </code></pre>
 
-            <h3>Application Logic</h3>
-            <ul>
-                <li>**Adaptive Weight:** Edge weights are dynamically updated: $Current\ Weight = Base\ Weight + (\alpha \times Queue\ Length)$.</li>
-                <li>**Signal Timing:** Green time is allocated based on "Traffic Pressure" (Queue Length $\times$ Base Weight) for incoming lanes.</li>
-                <li>**Route Suggestions:** Dijkstra's algorithm runs on the live-weighted `TrafficGraph` to suggest the fastest route.</li>
-            </ul>
+            <h3>Application Logic</h3>
+            <ul>
+                <li>**Adaptive Weight:** Edge weights are dynamically updated: $Current\ Weight = Base\ Weight + (\alpha \times Queue\ Length)$.</li>
+                <li>**Signal Timing:** Green time is allocated based on "Traffic Pressure" (Queue Length $\times$ Base Weight) for incoming lanes.</li>
+                <li>**Route Suggestions:** Dijkstra's algorithm runs on the live-weighted <code>TrafficGraph</code> to suggest the fastest route.</li>
+            </ul>
 
-            <h3>Analysis & Complexity</h3>
-            <p>Core routing time complexity is $O(E \log V)$ for Dijkstra's algorithm. This is highly efficient for real-time traffic management.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            <h3>Analysis & Complexity</h3>
+            <p>Core routing time complexity is $O(E \log V)$ for Dijkstra's algorithm. This is highly efficient for real-time traffic management.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case2" class="content-section">
-            <h2 class="problem-title">2. Emergency Vehicle Route Prioritization 🚨</h2>
+        <section id="case2" class="content-section">
+            <h2 class="problem-title">2. Emergency Vehicle Route Prioritization 🚨</h2>
 
-            <h3>Problem Statement</h3>
-            <p>Emergency response times (e.g., from the **Hospital** to an incident) are critically delayed by standard traffic light cycles. This system ensures immediate, guaranteed route clearance.</p>
-            
-            <h3>Data Structures & C++ Code</h3>
-            <p>Extends `TrafficGraph` with structures for active routes and quick road segment clearance tracking using a **Deque** and an **Unordered Set**.</p>
-            <div class="diagram"></div>
-            <pre><code>
+            <h3>Problem Statement</h3>
+            <p>Emergency response times (e.g., from the **Hospital** to an incident) are critically delayed by standard traffic light cycles. This system ensures immediate, guaranteed route clearance.</p>
+            
+            <h3>Data Structures & C++ Code</h3>
+            <p>Extends <code>TrafficGraph</code> with structures for active routes and quick road segment clearance tracking using a **Deque** and an **Unordered Set**.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;deque&gt;
 #include &lt;unordered_set&gt;
 
 // Structure to track an active emergency vehicle route
 struct EmergencyRoute {
-    std::string vehicle_id;
-    std::deque&lt;Junction&gt; path; // Sequence of junctions
+    std::string vehicle_id;
+    std::deque&lt;Junction&gt; path; // Sequence of junctions
 };
 
 // Data structure to store and manage active emergency routes
@@ -247,37 +258,37 @@ using ActiveRoutes = std::vector&lt;EmergencyRoute&gt;;
 
 // Data structure to quickly check which roads are currently 'cleared'
 using ClearedRoads = std::unordered_set&lt;std::pair&lt;Junction, Junction&gt;&gt;;
-            </code></pre>
+            </code></pre>
 
-            <h3>Application Logic</h3>
-            <ul>
-                <li>**Path Calculation:** An immediate fastest path is calculated when dispatched.</li>
-                <li>**Signal Override:** Signals along the route are immediately forced to **Green** for the emergency vehicle's direction, and cross-traffic is forced to **Red**.</li>
-                <li>**Dynamic Update:** The "cleared" state propagates dynamically just ahead of the vehicle using the deque.</li>
-            </ul>
+            <h3>Application Logic</h3>
+            <ul>
+                <li>**Path Calculation:** An immediate fastest path is calculated when dispatched.</li>
+                <li>**Signal Override:** Signals along the route are immediately forced to **Green** for the emergency vehicle's direction, and cross-traffic is forced to **Red**.</li>
+                <li>**Dynamic Update:** The "cleared" state propagates dynamically just ahead of the vehicle using the deque.</li>
+            </ul>
 
-            <h3>Analysis & Complexity</h3>
-            <p>Path calculation is $O(E \log V)$. The critical signal override and clearance update is an **$O(1)$** operation per junction, ensuring low latency.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            <h3>Analysis & Complexity</h3>
+            <p>Path calculation is $O(E \log V)$. The critical signal override and clearance update is an **$O(1)$** operation per junction, ensuring low latency.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case3" class="content-section">
-            <h2 class="problem-title">3. Smart Public Parking Management 🅿️</h2>
-            <h3>Problem Statement</h3>
-            <p>Focuses on parking areas near the **Hospital**, **Market**, and **Hotel**. Drivers waste time searching for empty spots, causing localized traffic congestion.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Hash Map** (`std::unordered_map`) stores parking slot status (Occupied/Free). A **Trie** is used for efficient search and auto-completion of parking lot names.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case3" class="content-section">
+            <h2 class="problem-title">3. Smart Public Parking Management 🅿️</h2>
+            <h3>Problem Statement</h3>
+            <p>Focuses on parking areas near the **Hospital**, **Market**, and **Hotel**. Drivers waste time searching for empty spots, causing localized traffic congestion.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Hash Map** (<code>std::unordered_map</code>) stores parking slot status (Occupied/Free). A **Trie** is used for efficient search and auto-completion of parking lot names.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
 #include &lt;vector&gt;
 
 // Structure for a single parking slot's real-time data
 struct ParkingSlot {
-    std::string slot_id;
-    bool is_occupied;
-    int lot_location_x, lot_location_y;
+    std::string slot_id;
+    bool is_occupied;
+    int lot_location_x, lot_location_y;
 };
 
 // Map Slot ID (string) to its current status data
@@ -285,36 +296,36 @@ using SlotStatusMap = std::unordered_map&lt;std::string, ParkingSlot&gt;;
 
 // Trie Node for efficiently searching large parking lot databases by name/prefix
 struct TrieNode {
-    std::unordered_map&lt;char, TrieNode*&gt; children;
-    bool is_end_of_word = false; 
+    std::unordered_map&lt;char, TrieNode*&gt; children;
+    bool is_end_of_word = false; 
 };
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>Sensors detect occupancy, updating the `SlotStatusMap`. The system uses lot names (searched via the Trie) and slot location data to guide drivers to the nearest available spot.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Lookups in the Hash Map are $O(1)$ on average. Trie search complexity is $O(L)$, where $L$ is the length of the lot name being searched.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Sensors detect occupancy, updating the <code>SlotStatusMap</code>. The system uses lot names (searched via the Trie) and slot location data to guide drivers to the nearest available spot.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Lookups in the Hash Map are $O(1)$ on average. Trie search complexity is $O(L)$, where $L$ is the length of the lot name being searched.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case4" class="content-section">
-            <h2 class="problem-title">4. Integrated Public Transport System (IPTS) 🚌</h2>
-            <h3>Problem Statement</h3>
-            <p>Inefficient connections and poor scheduling between the **Railway Station**, **Bus Stand**, and major **Residential Areas** discourage public transport usage.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Time-Expanded Graph** (TEG) is used for optimization, where nodes include time information. A **Priority Queue** manages path search for the fastest route.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case4" class="content-section">
+            <h2 class="problem-title">4. Integrated Public Transport System (IPTS) 🚌</h2>
+            <h3>Problem Statement</h3>
+            <p>Inefficient connections and poor scheduling between the **Railway Station**, **Bus Stand**, and major **Residential Areas** discourage public transport usage.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Time-Expanded Graph** (TEG) is used for optimization, where nodes include time information. A **Priority Queue** manages path search for the fastest route.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;queue&gt;
 #include &lt;map&gt;
 
 // Represents a node in the Time-Expanded Graph: (Stop ID, Departure Time)
 struct TEG_Node {
-    int stop_id;
-    int time_point; // Time in minutes from midnight
-    // Required for Priority Queue comparison
-    bool operator&gt;(const TEG_Node&amp; other) const {
-        return time_point &gt; other.time_point;
-    }
+    int stop_id;
+    int time_point; // Time in minutes from midnight
+    // Required for Priority Queue comparison
+    bool operator&gt;(const TEG_Node&amp; other) const {
+        return time_point &gt; other.time_point;
+    }
 };
 
 // TEG adjacency list: Stop ID -> Vector of possible connections (edges)
@@ -322,31 +333,31 @@ using TimeExpandedGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&
 
 // A Min-Heap for Dijkstra's on the TEG, prioritizing earlier arrival time
 using TEG_PQ = std::priority_queue&lt;TEG_Node, std::vector&lt;TEG_Node&gt;, std::greater&lt;TEG_Node&gt;&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>The system runs Dijkstra's on the TEG to find the minimum travel time (including wait and transfer times). Schedules are dynamically adjusted based on passenger load and traffic data.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Route optimization runs Dijkstra's on the TEG, $O(V_{TE} \log V_{TE})$, where $V_{TE}$ is the number of (stop, time) nodes, ensuring efficient real-time schedule updates.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>The system runs Dijkstra's on the TEG to find the minimum travel time (including wait and transfer times). Schedules are dynamically adjusted based on passenger load and traffic data.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Route optimization runs Dijkstra's on the TEG, $O(V_{TE} \log V_{TE})$, where $V_{TE}$ is the number of (stop, time) nodes, ensuring efficient real-time schedule updates.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case5" class="content-section">
-            <h2 class="problem-title">5. Water Resource Management & Flood Prediction 🌊</h2>
-            <h3>Problem Statement</h3>
-            <p>Unpredictable river flow and Dam releases threaten the low-lying **Farm** areas and riverside **Residential Areas** with flooding.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Time Series Database** concept, implemented with a sorted **Vector** for efficient range queries. A **Queue** manages time-critical flood alert dissemination.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case5" class="content-section">
+            <h2 class="problem-title">5. Water Resource Management & Flood Prediction 🌊</h2>
+            <h3>Problem Statement</h3>
+            <p>Unpredictable river flow and Dam releases threaten the low-lying **Farm** areas and riverside **Residential Areas** with flooding.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Time Series Database** concept, implemented with a sorted **Vector** for efficient range queries. A **Queue** manages time-critical flood alert dissemination.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 #include &lt;algorithm&gt; // For binary search
 
 // Structure to hold a time-series data point
 struct WaterReading {
-    long long timestamp; // Unix timestamp
-    int sensor_id;       // Which sensor (Dam, River point A, B, etc.)
-    int water_level_cm;  // Sensor data 
+    long long timestamp; // Unix timestamp
+    int sensor_id;       // Which sensor (Dam, River point A, B, etc.)
+    int water_level_cm;  // Sensor data 
 };
 
 // Main Time Series Storage (Chronologically sorted vector)
@@ -354,31 +365,31 @@ using TimeSeriesData = std::vector&lt;WaterReading&gt;;
 
 // Queue to hold high-priority flood alerts before sending to city systems
 using AlertQueue = std::queue&lt;std::string&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>Predictive models analyze the `TimeSeriesData`. If the water level is forecasted to breach critical limits, a flood warning is added to the `AlertQueue` for immediate broadcast.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Data lookups use Binary Search on the sorted vector $O(\log N)$. Alert processing is $O(1)$ dequeuing.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>Predictive models analyze the <code>TimeSeriesData</code>. If the water level is forecasted to breach critical limits, a flood warning is added to the <code>AlertQueue</code> for immediate broadcast.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Data lookups use Binary Search on the sorted vector $O(\log N)$. Alert processing is $O(1)$ dequeuing.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case6" class="content-section">
-            <h2 class="problem-title">6. Solid Waste Collection Route Optimization 🗑️</h2>
-            <h3>Problem Statement</h3>
-            <p>Inefficient, fixed routes for waste collection lead to over-full bins in some areas and unnecessary trips to the **Dump/Landfill** location.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** where nodes are bins and edges are distances. **Greedy/Dynamic Programming** techniques are used to solve the **TSP** (Traveling Salesperson Problem) variation.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case6" class="content-section">
+            <h2 class="problem-title">6. Solid Waste Collection Route Optimization 🗑️</h2>
+            <h3>Problem Statement</h3>
+            <p>Inefficient, fixed routes for waste collection lead to over-full bins in some areas and unnecessary trips to the **Dump/Landfill** location.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Graph** where nodes are bins and edges are distances. **Greedy/Dynamic Programming** techniques are used to solve the **TSP** (Traveling Salesperson Problem) variation.</p>
+            <div class="diagram">[Image illustrating the Traveling Salesperson Problem (TSP) on a map, showing a central depot and multiple bin locations (nodes) with a complex, optimized closed-loop path connecting the 'ready' bins]</div>
+            <pre><code>
 #include &lt;vector&gt;
 #include &lt;map&gt;
 #include &lt;algorithm&gt;
 
 // Structure representing a smart bin
 struct SmartBin {
-    int bin_id;
-    double fill_level; // 0.0 to 1.0
-    int location_x, location_y;
+    int bin_id;
+    double fill_level; // 0.0 to 1.0
+    int location_x, location_y;
 };
 
 // Graph adjacency matrix storing the cost (distance/time) between bins
@@ -386,34 +397,34 @@ using DistanceMatrix = std::vector&lt;std::vector&lt;int&gt;&gt;;
 
 // Map to efficiently select only 'ready' bins (e.g., fill_level > 0.8) for the route optimization
 using ReadyBins = std::map&lt;int, SmartBin&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>The system identifies `ReadyBins` and calculates the optimal collection sequence using the `DistanceMatrix`. Since this is a TSP problem, a efficient heuristic or approximation algorithm is used daily.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Practical solutions use approximation algorithms (e.g., Christofides or nearest neighbor), resulting in polynomial time complexity, typically $O(N^3)$ or worse for $N$ bins.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>The system identifies <code>ReadyBins</code> and calculates the optimal collection sequence using the <code>DistanceMatrix</code>. Since this is a TSP problem, a efficient heuristic or approximation algorithm is used daily.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Practical solutions use approximation algorithms (e.g., Christofides or nearest neighbor), resulting in polynomial time complexity, typically $O(N^3)$ or worse for $N$ bins.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case7" class="content-section">
-            <h2 class="problem-title">7. Smart Energy Grid Balancing ⚡</h2>
-            <h3>Problem Statement</h3>
-            <p>Unpredictable high-load spikes from the **Factory** and **Industrial Area** can cause blackouts in the nearby **Residential Areas**.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** models the electrical sub-station hierarchy. A **Priority Queue** manages load shedding/re-routing requests based on the priority of the affected zone.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case7" class="content-section">
+            <h2 class="problem-title">7. Smart Energy Grid Balancing ⚡</h2>
+            <h3>Problem Statement</h3>
+            <p>Unpredictable high-load spikes from the **Factory** and **Industrial Area** can cause blackouts in the nearby **Residential Areas**.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Graph** models the electrical sub-station hierarchy. A **Priority Queue** manages load shedding/re-routing requests based on the priority of the affected zone.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;queue&gt;
 #include &lt;map&gt;
 
 // Represents an electrical node (substation or consumer area)
 struct Substation {
-    int id;
-    double current_load; // MW
-    int priority_level;  // 1=High (Hospital), 3=Low (Non-critical factory segment)
-    // For Priority Queue comparison
-    bool operator&gt;(const Substation&amp; other) const {
-        return priority_level &gt; other.priority_level;
-    }
+    int id;
+    double current_load; // MW
+    int priority_level;  // 1=High (Hospital), 3=Low (Non-critical factory segment)
+    // For Priority Queue comparison
+    bool operator&gt;(const Substation&amp; other) const {
+        return priority_level &gt; other.priority_level;
+    }
 };
 
 // Graph of the power grid connections
@@ -421,22 +432,22 @@ using PowerGridGraph = std::map&lt;int, std::vector&lt;int&gt;&gt;;
 
 // Min-Heap to prioritize load re-routing/shedding: lower priority_level is higher priority item
 using LoadPriorityQueue = std::priority_queue&lt;Substation, std::vector&lt;Substation&gt;, std::greater&lt;Substation&gt;&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>When a load surge is detected, the system determines the lowest-priority area to shed load from using the `LoadPriorityQueue`. It checks the `PowerGridGraph` for alternative supply paths using a fast traversal algorithm.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Graph traversal (DFS/BFS) for re-routing is fast, $O(V+E)$, ensuring instantaneous decision-making during critical power events.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>When a load surge is detected, the system determines the lowest-priority area to shed load from using the <code>LoadPriorityQueue</code>. It checks the <code>PowerGridGraph</code> for alternative supply paths using a fast traversal algorithm.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Graph traversal (DFS/BFS) for re-routing is fast, $O(V+E)$, ensuring instantaneous decision-making during critical power events.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case8" class="content-section">
-            <h2 class="problem-title">8. Air Quality Monitoring & Mitigation 🌬️</h2>
-            <h3>Problem Statement</h3>
-            <p>Emissions from the **Industrial Area** and **Factory** negatively impact air quality in downwind **Residential Areas** and recreational zones like the **Park/Stadium**.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **2D Array** represents a spatial grid of the city for sensor readings. A **Hash Map** stores time-based alerts and event data.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case8" class="content-section">
+            <h2 class="problem-title">8. Air Quality Monitoring & Mitigation 🌬️</h2>
+            <h3>Problem Statement</h3>
+            <p>Emissions from the **Industrial Area** and **Factory** negatively impact air quality in downwind **Residential Areas** and recreational zones like the **Park/Stadium**.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **2D Array** represents a spatial grid of the city for sensor readings. A **Hash Map** stores time-based alerts and event data.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;vector&gt;
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
@@ -447,35 +458,35 @@ using AirQualityGrid = std::vector&lt;std::vector&lt;int&gt;&gt;;
 
 // Structure for a recorded event/alert
 struct AirQualityEvent {
-    long long timestamp;
-    int grid_x, grid_y;
-    int aqi_value;
+    long long timestamp;
+    int grid_x, grid_y;
+    int aqi_value;
 };
 
 // Hash map to store alerts/warnings keyed by timestamp for quick lookup
 using EventLog = std::unordered_map&lt;long long, AirQualityEvent&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>The system constantly updates the `AirQualityGrid`. When a critical AQI is reached, an event is logged. Predictive models use the grid data and wind patterns to determine the source and trajectory of pollution.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>Spatial lookups in the grid are $O(1)$. Event logging and retrieval from the Hash Map are also $O(1)$ on average, allowing for rapid alert generation.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>The system constantly updates the <code>AirQualityGrid</code>. When a critical AQI is reached, an event is logged. Predictive models use the grid data and wind patterns to determine the source and trajectory of pollution.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>Spatial lookups in the grid are $O(1)$. Event logging and retrieval from the Hash Map are also $O(1)$ on average, allowing for rapid alert generation.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case9" class="content-section">
-            <h2 class="problem-title">9. Disaster Response and Evacuation Planning 🆘</h2>
-            <h3>Problem Statement</h3>
-            <p>Lack of pre-planned, optimized, and dynamic evacuation routes for high-density areas (School, Hospital, Stadium) during emergencies (e.g., dam break or major fire).</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** of the city where edge weights are dynamically updated to mark **blocked/unsafe** roads. **Breadth-First Search (BFS)** finds shortest path in terms of segments.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case9" class="content-section">
+            <h2 class="problem-title">9. Disaster Response and Evacuation Planning 🆘</h2>
+            <h3>Problem Statement</h3>
+            <p>Lack of pre-planned, optimized, and dynamic evacuation routes for high-density areas (School, Hospital, Stadium) during emergencies (e.g., dam break or major fire).</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Graph** of the city where edge weights are dynamically updated to mark **blocked/unsafe** roads. **Breadth-First Search (BFS)** finds shortest path in terms of segments.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;queue&gt;
 #include &lt;map&gt;
 #include &lt;vector&gt;
 
 // Graph adjacency list: Node -> Vector of neighbors and segment length/safety weight
-using EvacGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; 
+using EvacGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; 
 
 // Queue for Breadth-First Search (BFS) to find the shortest number of segments (fastest)
 using BFSQueue = std::queue&lt;int&gt;;
@@ -485,158 +496,81 @@ using EvacPath = std::vector&lt;int&gt;;
 
 // Array or Map to track the status of each junction (Safe, Blocked, Congested)
 using JunctionStatus = std::map&lt;int, std::string&gt;;
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>The system updates `JunctionStatus` based on real-time feedback. It then uses BFS on the `EvacGraph` (ignoring paths through 'Blocked' junctions) to find the safest path to designated zones.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>BFS is $O(V+E)$, providing the fastest possible calculation of the minimum number of road segments to an evacuation point, which is crucial during a disaster.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>The system updates <code>JunctionStatus</code> based on real-time feedback. It then uses BFS on the <code>EvacGraph</code> (ignoring paths through 'Blocked' junctions) to find the safest path to designated zones.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>BFS is $O(V+E)$, providing the fastest possible calculation of the minimum number of road segments to an evacuation point, which is crucial during a disaster.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-        <section id="case10" class="content-section">
-            <h2 class="problem-title">10. Last-Mile Delivery Optimization 🛵</h2>
-            <h3>Problem Statement</h3>
-            <p>Delivery services (vehicles/drones) face severe delays navigating the dense, complex road network and pedestrian zones of the **Residential Areas** and **Market**.</p>
-            <h3>Data Structures & C++ Code</h3>
-            <p>A **Graph** (TrafficGraph from Case 1) with time weights. A **Priority Queue** manages order scheduling, prioritizing orders based on deadlines and geographical proximity.</p>
-            <div class="diagram"></div>
-            <pre><code>
+        <section id="case10" class="content-section">
+            <h2 class="problem-title">10. Last-Mile Delivery Optimization 🛵</h2>
+            <h3>Problem Statement</h3>
+            <p>Delivery services (vehicles/drones) face severe delays navigating the dense, complex road network and pedestrian zones of the **Residential Areas** and **Market**.</p>
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Graph** (TrafficGraph from Case 1) with time weights. A **Priority Queue** manages order scheduling, prioritizing orders based on deadlines and geographical proximity.</p>
+            <div class="diagram"></div>
+            <pre><code>
 #include &lt;queue&gt;
 #include &lt;tuple&gt;
 #include &lt;vector&gt;
 
 // Structure for an incoming delivery order
 struct DeliveryOrder {
-    int order_id;
-    int delivery_location_junction;
-    int deadline_time; // Time by which the delivery must be completed
-    double latitude, longitude;
+    int order_id;
+    int delivery_location_junction;
+    int deadline_time; // Time by which the delivery must be completed
+    double latitude, longitude;
 };
 
 // Min-Heap (Priority Queue) prioritizing orders with the closest deadline (earliest time)
 // Stores: (Deadline Time, Order ID)
 using OrderPriorityQueue = std::priority_queue&lt;
-    std::pair&lt;int, int&gt;, 
-    std::vector&lt;std::pair&lt;int, int&gt;&gt;, 
-    std::greater&lt;std::pair&lt;int, int&gt;&gt;
+    std::pair&lt;int, int&gt;, 
+    std::vector&lt;std::pair&lt;int, int&gt;&gt;, 
+    std::greater&lt;std::pair&lt;int, int&gt;&gt;
 &gt;;
 
 // Graph structure is reused from Case 1 (TrafficGraph) for routing
-            </code></pre>
-            <h3>Application Logic</h3>
-            <p>The system retrieves the next urgent order from the `OrderPriorityQueue`. It then uses Dijkstra's ($O(E \log V)$) on the live traffic `TrafficGraph` to calculate the absolute fastest route for the delivery agent.</p>
-            <h3>Analysis & Complexity</h3>
-            <p>The primary computation for each delivery agent is the repeated shortest path search, running in $O(E \log V)$ time for the fastest route calculation.</p>
-            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
-        </section>
+            </code></pre>
+            <h3>Application Logic</h3>
+            <p>The system retrieves the next urgent order from the <code>OrderPriorityQueue</code>. It then uses Dijkstra's ($O(E \log V)$) on the live traffic <code>TrafficGraph</code> to calculate the absolute fastest route for the delivery agent.</p>
+            <h3>Analysis & Complexity</h3>
+            <p>The primary computation for each delivery agent is the repeated shortest path search, running in $O(E \log V)$ time for the fastest route calculation.</p>
+            <a href="#top" class="back-to-top">↑ Back to Navigation Menu</a>
+        </section>
 
-    </div>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Pramod – Additional 10 Smart City Business Cases</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0c0f1a;
-            --glass: rgba(255,255,255,0.08);
-            --accent: #00eaff;
-            --accent2: #9c59ff;
-            --text-light: #e8e8e8;
-            --radius: 14px;
-            --blur: 12px;
-            --code-bg: rgba(0,0,0,0.35);
-        }
-        *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
-        body{
-            background: radial-gradient(circle at top, #1b2238, #090b14 70%);
-            color:var(--text-light);
-            padding:32px;
-        }
-        .container{max-width:1100px;margin:0 auto}
-        header.card, .content-section, .navigation {
-            background:var(--glass);
-            border-radius:var(--radius);
-            padding:28px;
-            border:1px solid rgba(255,255,255,0.08);
-            margin-bottom:22px;
-            backdrop-filter: blur(var(--blur));
-        }
-        .badge{
-            display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(0,234,255,0.08);color:var(--accent);font-weight:600;font-size:0.85rem;margin-bottom:10px;
-        }
-        h1{font-size:2.4rem;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;color:transparent;margin-bottom:6px}
-        p.lead{opacity:0.9;margin-bottom:8px}
-        .navigation h2{color:var(--accent);margin-bottom:10px}
-        .problem-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-        .problem-list a{
-            display:block;padding:12px;border-radius:10px;background:rgba(0,0,0,0.18);color:var(--text-light);text-decoration:none;font-weight:600;border-left:4px solid var(--accent2)
-        }
-        .content-section{padding:22px}
-        .problem-title{color:var(--accent);font-size:1.6rem;margin-bottom:10px;border-bottom:2px solid rgba(0,234,255,0.12);padding-bottom:8px}
-        h3{color:var(--accent2);margin-top:14px;margin-bottom:8px}
-        p{line-height:1.6;margin-bottom:8px;opacity:0.95}
-        pre{background:var(--code-bg);padding:12px;border-radius:8px;overflow:auto;margin:10px 0;font-family:monospace;font-size:0.9rem}
-        code{color:var(--text-light)}
-        .back-to-top{display:inline-block;margin-top:10px;color:var(--accent);text-decoration:none;font-weight:700}
-        footer{margin-top:18px;color:#9aa0b1;font-size:0.9rem}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header class="card">
-            <span class="badge">Next-Gen City Design · DAA Project</span>
-            <h1>Pramod S Indi — Additional 10 Business Cases (11–20)</h1>
-            <p class="lead"><strong>Module:</strong> Smart City — Supplemental Business Cases derived from your city map.</p>
-            <p class="lead">Each case follows the same structure: <em>Problem Statement → Data Structures & C++ Code → Application Logic → Analysis & Complexity</em>.</p>
-        </header>
+        <hr>
 
-        <div class="navigation">
-            <h2>Additional Cases</h2>
-            <ul class="problem-list">
-                <li><a href="#case11">11. Smart Retail Analytics & Demand Forecasting</a></li>
-                <li><a href="#case12">12. Visitor Wayfinding & Local Discovery</a></li>
-                <li><a href="#case13">13. Predictive Road & Pavement Maintenance</a></li>
-                <li><a href="#case14">14. Smart Streetlighting & Adaptive Lighting</a></li>
-                <li><a href="#case15">15. Public Wi-Fi / Bandwidth Orchestration</a></li>
-                <li><a href="#case16">16. Irrigation Scheduling & Precision Farming</a></li>
-                <li><a href="#case17">17. Industrial Emissions & Compliance Monitoring</a></li>
-                <li><a href="#case18">18. Cold-Chain & Perishable Logistics</a></li>
-                <li><a href="#case19">19. Event & Venue Management</a></li>
-                <li><a href="#case20">20. Smart Surveillance & Anomaly Detection</a></li>
-            </ul>
-        </div>
+        <section id="case11" class="content-section">
+            <h2 class="problem-title">11. Smart Retail Analytics & Demand Forecasting (Mall / Showroom / Market)</h2>
 
-                <section id="case11" class="content-section">
-            <h2 class="problem-title">11. Smart Retail Analytics & Demand Forecasting (Mall / Showroom / Market)</h2>
+            <h3>Problem Statement</h3>
+            <p>Mall/showroom/market owners need demand forecasts, footfall heatmaps and product-level insight to optimize inventory, promotions and layout.</p>
 
-            <h3>Problem Statement</h3>
-            <p>Mall/showroom/market owners need demand forecasts, footfall heatmaps and product-level insight to optimize inventory, promotions and layout.</p>
-
-            <h3>Data Structures & C++ Code</h3>
-            <div class="diagram"></div>
-            <pre><code>#include &lt;vector&gt;
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Deque** implements a sliding window for time series data (footfall/sales), and a **Hash Map** links product IDs to sales history.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;vector&gt;
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
 #include &lt;deque&gt;
 
 // Footfall counter per zone
 struct ZoneCount {
-    int zone_id;
-    long long timestamp; // unix ts
-    int count; // people entering in interval
+    int zone_id;
+    long long timestamp; // unix ts
+    int count; // people entering in interval
 };
 
 // Sales record
 struct Sale {
-    std::string product_id;
-    int zone_id;
-    long long timestamp;
-    int qty;
-    double price;
+    std::string product_id;
+    int zone_id;
+    long long timestamp;
+    int qty;
+    double price;
 };
 
 // Time-windowed aggregator
@@ -644,50 +578,383 @@ using ZoneSeries = std::deque&lt;ZoneCount&gt;; // roll-up sliding window
 using SalesMap = std::unordered_map&lt;std::string, std::vector&lt;Sale&gt;&gt;; // product -> sales
 </code></pre>
 
-            <h3>Application Logic</h3>
-            <p>Ingest sensor counts into <code>ZoneSeries</code>, aggregate <code>SalesMap</code>, compute rolling averages and generate restock/promotional suggestions using weighted moving averages.</p>
+            <h3>Application Logic</h3>
+            <p>Ingest sensor counts into <code>ZoneSeries</code>, aggregate <code>SalesMap</code>, compute rolling averages and generate restock/promotional suggestions using weighted moving averages.</p>
 
-            <h3>Analysis & Complexity</h3>
-            <p>Sliding-window updates are O(1) amortized; computing rolling averages O(Z) for Z zones; product aggregations O(P) where P is number of SKUs within the analysis window.</p>
-            <a class="back-to-top" href="#top">↑ Back to top</a>
-        </section>
+            <h3>Analysis & Complexity</h3>
+            <p>Sliding-window updates are $O(1)$ amortized; computing rolling averages $O(Z)$ for $Z$ zones; product aggregations $O(P)$ where $P$ is number of SKUs within the analysis window.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
 
-                <section id="case12" class="content-section">
-            <h2 class="problem-title">12. Visitor Wayfinding & Local Discovery (Hotel / Mall / Park / Helipad)</h2>
+        <section id="case12" class="content-section">
+            <h2 class="problem-title">12. Visitor Wayfinding & Local Discovery (Hotel / Mall / Park / Helipad)</h2>
 
-            <h3>Problem Statement</h3>
-            <p>Visitors (hotel guests, tourists) need contextual navigation, POI recommendations, and multimodal directions (walk → bus → rail → helipad).</p>
+            <h3>Problem Statement</h3>
+            <p>Visitors (hotel guests, tourists) need contextual navigation, POI recommendations, and multimodal directions (walk $\to$ bus $\to$ rail $\to$ helipad).</p>
 
-            <h3>Data Structures & C++ Code</h3>
-            <div class="diagram"></div>
-            <pre><code>#include &lt;map&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Multimodal Graph** with varied edge costs and a **Priority Queue** for shortest path calculations (Dijkstra's/A*).</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;map&gt;
 #include &lt;string&gt;
+#include &lt;queue&gt;
+#include &lt;tuple&gt;
 
-// Point of Interest structure
+// A node in the multimodal graph
 struct POI {
-    int id;
-    std::string name;
-    double lat, lon;
-    std::string category; // e.g., "Restaurant", "Bus Stop"
+    int id;
+    std::string name;
+    double lat, lon;
 };
 
-// Graph structure for multimodal routing (walking, driving, transit)
-// Edge weights are time, dynamically adjusted by traffic
-using POIGraph = std::map&lt;int, std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;; // POI ID -> (Dest POI ID, Time Cost)
+// Multimodal Graph (Node -> Vector of edges (connections, type, time))
+using MultimodalGraph = std::map&lt;int, std::vector&lt;std::tuple&lt;int, std::string, int&gt;&gt;&gt;; // DestID, Mode, TimeCost
 
-// Min-Heap for Dijkstra's to find the fastest path
-using RoutingPQ = std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;, std::greater&lt;std::pair&lt;int, int&gt;&gt;&gt;; 
+// Min-Heap for A* / Dijkstra's to find fastest multimodal route
+using RoutePQ = std::priority_queue&lt;std::pair&lt;int, int&gt;, std::vector&lt;std::pair&lt;int, int&gt;&gt;, std::greater&lt;std::pair&lt;int, int&gt;&gt;&gt;;
 </code></pre>
 
-            <h3>Application Logic</h3>
-            <p>The system runs a **Dijkstra's** or **A\*** search on the <code>POIGraph</code> to provide the optimal multi-modal route. It filters points of interest (POIs) based on proximity using a spatial indexing structure (not explicitly coded here, but typically a **Quadtree** or **R-tree** in C++ for performance, which is omitted for simplicity in this C++ example).</p>
+            <h3>Application Logic</h3>
+            <p>Dijkstra's/A* runs on the **Multimodal Graph** to find the minimum-cost (time/money) path. The cost of edges changes based on the mode of transport and real-time transit data.</p>
 
-            <h3>Analysis & Complexity</h3>
-            <p>Route calculation is $O(E \log V)$. The proximity search, if using an optimal spatial index, is $O(\log N)$ where $N$ is the number of POIs.</p>
-            <a class="back-to-top" href="#top">↑ Back to top</a>
-        </section>
-    </div>
+            <h3>Analysis & Complexity</h3>
+            <p>Shortest path search remains $O(E \log V)$, where $V$ and $E$ are large due to multimodal complexity, but the efficiency of the priority queue makes it real-time viable.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case13" class="content-section">
+            <h2 class="problem-title">13. Predictive Road & Pavement Maintenance</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Identifying and prioritizing road segments with high risk of potholes or failure, especially around high-load areas like the **Industrial Area** and **Factory** access roads.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Hash Map** tracks segment risk scores. A **Max-Heap** prioritizes urgent maintenance work orders.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;map&gt;
+
+// Structure for a pavement sensor reading
+struct PavementReading {
+    int segment_id;
+    double vibration_amplitude; // e.g., for roughness
+    long long timestamp;
+};
+
+// Segment status: ID -> Current risk score
+using RiskMap = std::map&lt;int, double&gt;;
+
+// Max-Heap to prioritize maintenance by highest risk score
+using MaintenancePQ = std::priority_queue&lt;std::pair&lt;double, int&gt;&gt;; // (Risk Score, Segment ID)
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Readings are fed into a model that updates the <code>RiskMap</code> for each road segment. The <code>MaintenancePQ</code> extracts the highest-risk segment for immediate scheduling.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Updating risk scores is $O(1)$. Prioritization by Max-Heap is $O(\log N)$, ensuring rapid extraction of the most critical road segment for maintenance.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case14" class="content-section">
+            <h2 class="problem-title">14. Smart Streetlighting & Adaptive Lighting</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Wasting energy by keeping streetlights at $100\%$ intensity late at night in low-traffic **Residential** areas, while needing quick response near the **Park/Stadium** during events.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Map** stores light status by zone ID. A **Quadtree** efficiently manages the spatial grouping of lights for proximity-based triggering.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;map&gt;
+#include &lt;vector&gt;
+
+// Streetlight object
+struct Streetlight {
+    int light_id;
+    int zone_id;
+    int current_intensity; // 0-100
+    // Spatial coordinates for Quadtree
+    double lat, lon; 
+};
+
+// Map to store current light intensity and status
+using LightStatusMap = std::map&lt;int, Streetlight&gt;;
+
+// Basic Quadtree Node structure
+struct QuadTreeNode {
+    // Defines the geographic area of this node
+    double x_min, x_max, y_min, y_max;
+    // Child nodes for spatial subdivision
+    QuadTreeNode* children[4] = {nullptr}; 
+    std::vector&lt;Streetlight*&gt; lights_in_area;
+};
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>When motion is detected, the **Quadtree** quickly identifies surrounding streetlights. These lights are queried from the `LightStatusMap` and their intensity is increased to $100\%$.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Spatial search in a balanced Quadtree is $O(\log N)$ or $O(\sqrt{N})$ in the worst-case, which is highly efficient for real-time proximity detection.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case15" class="content-section">
+            <h2 class="problem-title">15. Public Wi-Fi / Bandwidth Orchestration</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Uneven bandwidth usage, particularly around the **Market** and **Park/Stadium** during peak hours, leads to service degradation and poor user experience.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Max-Heap** prioritizes heavy users for potential throttling. A **Disjoint Set Union (DSU)** tracks connected Access Points (APs) for network partitioning/re-routing.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;queue&gt;
+#include &lt;vector&gt;
+#include &lt;numeric&gt;
+
+// Structure for a Wi-Fi user's session
+struct UserSession {
+    int user_id;
+    int ap_id;
+    long long current_usage_kbps;
+};
+
+// Max-Heap to prioritize throttling/re-routing (Max usage first)
+using ThrottlingPQ = std::priority_queue&lt;std::pair&lt;long long, int&gt;&gt;; // (Usage, User ID)
+
+// Disjoint Set Union (DSU) for network topology management
+struct DSU {
+    std::vector&lt;int&gt; parent;
+    DSU(int n) {
+        parent.resize(n);
+        std::iota(parent.begin(), parent.end(), 0);
+    }
+    int find(int i) {
+        if (parent[i] == i) return i;
+        return parent[i] = find(parent[i]);
+    }
+    void unite(int i, int j) {
+        int root_i = find(i);
+        int root_j = find(j);
+        if (root_i != root_j) parent[root_i] = root_j;
+    }
+};
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>High-usage users are pushed to `ThrottlingPQ`. The DSU structure is used to quickly determine if a high-load AP can be instantly offloaded to a neighboring AP group.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>The DSU operations (Find and Union) are nearly $O(1)$ (inverse Ackermann function $\alpha(N)$). Max-Heap operation is $O(\log N)$, ensuring real-time response to load balancing needs.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case16" class="content-section">
+            <h2 class="problem-title">16. Irrigation Scheduling & Precision Farming</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Inefficient water use in the **Farm** areas due to reliance on fixed schedules rather than dynamic sensor data (soil moisture, weather forecast).</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Min-Heap** prioritizes farm zones based on soil moisture deficit (needs water most urgently). A **2D Array/Grid** models the field and sensor locations.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;queue&gt;
+#include &lt;vector&gt;
+
+// Farm zone object
+struct FarmZone {
+    int zone_id;
+    double soil_moisture_level; // 0.0 to 1.0 (1.0 is saturated)
+    long long last_irrigated_time;
+    // For Min-Heap comparison (prioritize lower moisture/higher deficit)
+    bool operator&gt;(const FarmZone&amp; other) const {
+        return soil_moisture_level &gt; other.soil_moisture_level;
+    }
+};
+
+// Min-Heap for urgent irrigation tasks
+using IrrigationPQ = std::priority_queue&lt;FarmZone, std::vector&lt;FarmZone&gt;, std::greater&lt;FarmZone&gt;&gt;;
+
+// Simple 2D Grid to map sensor data to farm zones
+using FarmZoneGrid = std::vector&lt;std::vector&lt;int&gt;&gt;; // [Row][Col] -> Zone ID
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Sensor readings update the moisture level. When below a threshold, the zone is added to the `IrrigationPQ`. The system continuously waters the zone at the root of the Min-Heap.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Prioritization via Min-Heap is $O(\log N)$. Grid lookups are $O(1)$, enabling fast scheduling of irrigation pumps based on real-time deficit.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case17" class="content-section">
+            <h2 class="problem-title">17. Industrial Emissions & Compliance Monitoring</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Ensuring the **Factory** and **Industrial Area** maintain environmental compliance by constantly monitoring their stack emissions against regulatory limits.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Trie** stores and searches regulation text/keywords efficiently. A **Queue** handles the flow of emission data for sequential processing and compliance checks.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;map&gt;
+
+// Structure for an emission reading batch
+struct EmissionBatch {
+    int source_id;
+    long long timestamp;
+    double pollutant_level_ppm;
+};
+
+// Queue for high-speed, FIFO ingestion of real-time emission data
+using IngestionQueue = std::queue&lt;EmissionBatch&gt;;
+
+// Trie Node for efficiently searching the regulatory dictionary/limit text
+struct TrieNode {
+    std::map&lt;char, TrieNode*&gt; children;
+    std::string regulation_limit; // E.g., "Max SO2: 50ppm"
+};
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Data streams into the `IngestionQueue`. The processing module dequeues the batch, checks the pollutant level against standards found via the **Trie**, and flags non-compliant events.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Queue operations are $O(1)$. Trie search complexity is $O(L)$, where $L$ is the length of the regulation keyword, allowing for rapid and complex rule-based checking.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case18" class="content-section">
+            <h2 class="problem-title">18. Cold-Chain & Perishable Logistics</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Maintaining required temperature and humidity levels for sensitive cargo (e.g., medical supplies, perishable goods) moving between the **Hospital**, **Market**, and **Railway Station**.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Min-Heap** prioritizes the container with the *highest* temperature (or closest to failure). A **Hash Map** tracks container status.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+// Structure for a refrigerated container
+struct Container {
+    std::string container_id;
+    double temperature_c;
+    double max_safe_temp; // Critical threshold
+    long long last_reported_time;
+    // Min-Heap prioritizes items closest to max_safe_temp (i.e., highest temp is 'smallest' cost)
+    // To implement a Max-Heap of risk: use a custom comparator or negate the risk metric.
+    // Here we use Min-Heap on (Max - Current Temp), smallest value means highest temp.
+};
+
+// Custom Comparator to prioritize smallest difference (highest temperature)
+struct CompareContainer {
+    bool operator()(const Container&amp; a, const Container&amp; b) {
+        return (a.max_safe_temp - a.temperature_c) &gt; (b.max_safe_temp - b.temperature_c);
+    }
+};
+
+// Min-Heap of 'most at-risk' containers
+using RiskPriorityQueue = std::priority_queue&lt;Container, std::vector&lt;Container&gt;, CompareContainer&gt;;
+
+// Map to access container data by ID
+using ContainerStatus = std::unordered_map&lt;std::string, Container&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Sensor updates re-prioritize the containers in the `RiskPriorityQueue`. If the top element (highest temp) breaches the critical threshold, an immediate alert is triggered for maintenance.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Priority Queue updates are $O(\log N)$, ensuring that the most critically failed container is always accessible for real-time intervention.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case19" class="content-section">
+            <h2 class="problem-title">19. Event & Venue Management (Park / Stadium)</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Managing high-density pedestrian flow, ticketing, and resource allocation (staff, vendors) at the **Stadium** and **Park** during large-scale events.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Min-Heap** manages queues (entry/concessions) for shortest wait time. A **Hash Map** tracks real-time crowd density by zone.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;queue&gt;
+#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+
+// Structure for a venue zone (gate, concession stand)
+struct VenueZone {
+    int zone_id;
+    int current_queue_length;
+    std::string zone_type;
+    // Min-Heap prioritizes shortest queue
+    bool operator&gt;(const VenueZone&amp; other) const {
+        return current_queue_length &gt; other.current_queue_length;
+    }
+};
+
+// Min-Heap to manage queues for shortest wait time
+using QueueManagementPQ = std::priority_queue&lt;VenueZone, std::vector&lt;VenueZone&gt;, std::greater&lt;VenueZone&gt;&gt;;
+
+// Map to store current crowd density by zone ID
+using DensityMap = std::unordered_map&lt;int, int&gt;; // Zone ID -> Person Count
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>Patrons are directed to the shortest queue (root of the `QueueManagementPQ`). Staff are redeployed to zones with high density detected in the `DensityMap` to manage flow.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Queue redirection via Min-Heap is $O(\log N)$, providing an instantaneous way to balance load across all entry points and concessions.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+        <section id="case20" class="content-section">
+            <h2 class="problem-title">20. Smart Surveillance & Anomaly Detection</h2>
+
+            <h3>Problem Statement</h3>
+            <p>Monitoring critical city areas (e.g., **Railway Station**, **Hospital** entrance, **Factory** perimeter) for unusual activities or security threats.</p>
+
+            <h3>Data Structures & C++ Code</h3>
+            <p>A **Skip List** or **Balanced Binary Search Tree (BST)** organizes anomaly scores for fast retrieval of the highest-risk event. A **Hash Map** tracks active threats.</p>
+            <div class="diagram"></div>
+            <pre><code>#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+#include &lt;set&gt; // Using std::set as a high-level equivalent for a balanced BST/Skip List
+
+// Structure for a detected event
+struct AnomalyEvent {
+    int camera_id;
+    double risk_score; // 0.0 to 1.0
+    long long timestamp;
+    std::string description;
+};
+
+// Set (or Balanced BST/Skip List) to store events, ordered by risk score (Max risk first)
+// std::set can store unique objects and automatically sorts them.
+struct CompareAnomaly {
+    bool operator()(const AnomalyEvent&amp; a, const AnomalyEvent&amp; b) const {
+        if (a.risk_score != b.risk_score) return a.risk_score &gt; b.risk_score;
+        return a.timestamp &lt; b.timestamp; // Tie-breaker
+    }
+};
+using AnomalyRegister = std::set&lt;AnomalyEvent, CompareAnomaly&gt;;
+
+// Map for quick lookup of active threats by camera ID
+using ActiveThreats = std::unordered_map&lt;int, AnomalyEvent&gt;;
+</code></pre>
+
+            <h3>Application Logic</h3>
+            <p>The system analyzes video streams, assigns a `risk_score`, and inserts the event into the `AnomalyRegister`. The highest-risk event (first element) is flagged for human review. Active threats are tracked in the `ActiveThreats` map.</p>
+
+            <h3>Analysis & Complexity</h3>
+            <p>Insertion and retrieval from a balanced BST (like `std::set`) is $O(\log N)$, providing high performance for dynamic threat prioritization in a large-scale system.</p>
+            <a class="back-to-top" href="#top">↑ Back to top</a>
+        </section>
+
+    </div>
 </body>
 </html>
